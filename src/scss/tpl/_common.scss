@@ -1,0 +1,226 @@
+body {
+	font: $font-size_default $font-family_default;
+	line-height: $line-height_default;
+	color: $color__default;
+    background: $color__bg;
+}
+
+h1 {
+    @extend %title-default;
+}
+
+a {
+    @extend %link-default;
+
+    &:hover,
+    &:focus {
+        @extend %link-default;
+    }
+}
+
+input {
+    outline: 0;
+    outline: none;
+}
+
+button {
+    outline: 0;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        outline: 0;
+        cursor: pointer;
+    }
+}
+
+.color-brand {
+    @extend %color-brand;
+}
+
+.border-radius {
+    border-radius: 16px 0;
+}
+
+.text-underline {
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+.btn {
+    @extend %btn-default;
+    @extend %border-default;
+    border-radius: 1px;
+    width: 100%;
+    max-width: 314px;
+    padding: 10px;
+    line-height: 20px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-align: center;
+    text-transform: uppercase;
+    background: #fff;
+    transition: all .3s ease 0s;
+
+    &.btn_lg {
+        width: 100%;
+        max-width: 314px;
+    }
+
+    &.btn_md {
+        width: 100%;
+        max-width: 254px;
+    }
+
+    &.btn_sm {
+        width: 100%;
+
+        @include media-breakpoint-up(sm) {
+            max-width: 135px;
+        }
+    
+        @include media-breakpoint-only(xs) {
+            max-width: 100px;
+        }
+    }
+
+    &:hover {
+        color: #fff;
+        border-color: #8C8C8C;
+        background: #8C8C8C;
+    }
+}
+
+.icons {
+    display: none;
+}
+
+.icon-fluid {
+    @include size(100%,100%);
+    pointer-events: none;
+}
+
+.icon-prev {
+    @include size(18px,18px);
+}
+
+.list-icon {
+    @include fw(20px);
+    @include wh(20px,20px);
+    margin: 0 12px 0 0;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.wrapper {
+    @extend %wrapper;
+}
+
+.close {
+    @include inline-block;
+    @include size(32px,32px);
+    padding: 0;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    border: 0;
+    background: rgba(0,0,0,0);
+}
+
+.readmore {
+    @extend %flex-center;
+    font-weight: 700;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all .3s ease;
+
+    &:hover {
+        @include media-breakpoint-up(md) {
+            font-size: 1.1em;
+        }
+
+        .readmore__icon {
+            @include media-breakpoint-up(md) {
+                @include fw(96px);
+            }
+        }
+    }
+}
+
+.readmore__icon {
+    @include fw(75px);
+    @include wh(75px,20px);
+    margin: 0 0 0 10px;
+    transition: all .3s ease;
+}
+
+.map {
+    height: 400px;
+    overflow: hidden;
+    border-radius: 16px 0px;
+    border: 1px solid #000000;
+}
+
+.summ {
+    white-space: nowrap;
+}
+
+.pwd {
+    @include font(24px,700);
+    line-height: 30px;
+    margin: 0 0 8px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.tab-toggler_hide {
+    display: none;
+}
+
+.tab-toggler {
+    &.active {
+        .tab-toggler_show {
+            display: none;
+        }
+        
+        .tab-toggler_hide {
+            display: inherit;
+        }
+    }
+}
+
+.notfound {
+    text-align: center;
+    text-transform: uppercase;
+
+    @include media-breakpoint-up(lg) {
+        width: (100%/12*4);
+        margin: 0 0 0 (100%/12*4);
+    }
+}
+
+.notfound__picture {
+    @include wh(266px,294px);
+    margin: 0 auto 32px;
+}
+
+.notfound__text {
+    margin: 0 0 32px;
+}
+
+.notfound__footer {
+    @extend %flex-center;
+    justify-content: center;
+}
+
+.ms2_cost {
+    white-space: nowrap;
+}

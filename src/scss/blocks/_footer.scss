@@ -1,0 +1,134 @@
+.footer {
+    @include fs-lh(14px,20px);
+    font-family: $font-family_content;
+    padding: 32px 0;
+    background: #fff;
+
+    p {
+        margin: 0 0 18px;
+        letter-spacing: 0.05em;
+    }
+}
+
+.footer__wrapper {
+    @extend %d-flex;
+    align-items: center;
+    border: 1px solid $color__border;
+
+    @include media-breakpoint-up(md) {
+        @include py(45px);
+        margin: 0 0 18px;
+    }
+
+    @include media-breakpoint-between(md,lg) {
+        @include px(30px);
+    }
+
+    @include media-breakpoint-down(sm) {
+        @include offset(0 0 42px,35px 30px 24px);
+    }
+}
+
+.footer__col {
+    @include media-breakpoint-only(sm) {
+        @include fw(100%/12*6);
+        margin-left: (100%/12*3);
+    }
+
+    @include media-breakpoint-only(xs) {
+        @include fw(100%);
+    }
+
+    &.footer__col_desc {
+        @include media-breakpoint-up(xl) {
+            @include fw(100%/12*3);
+            margin-left: (100%/12);
+        }
+
+        @include media-breakpoint-between(md,lg) {
+            @include fw(100%/12*4);
+        }
+
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 36px;
+            order: 2;
+        }
+    }
+
+    &.footer__col_logo {
+        text-align: center;
+
+        @include media-breakpoint-up(md) {
+            @include fw(100%/12*4);
+        }
+
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 36px;
+            order: 1;
+        }
+    }
+
+    &.footer__col_contacts {
+        @include media-breakpoint-up(xl) {
+            @include fw(100%/12*3);
+            margin-left: (100%/12);
+        }
+
+        @include media-breakpoint-between(md,lg) {
+            @include fw(100%/12*4);
+        }
+
+        @include media-breakpoint-down(sm) {
+            order: 3;
+        }
+    }
+}
+
+.footer__bottom {
+    @extend %d-flex;
+    align-items: center;
+    font-weight: 300;
+
+    @include media-breakpoint-down(md) {
+        text-align: center;
+    }
+
+    @include media-breakpoint-down(sm) {
+        @include fs-lh(14px,20px);
+    }
+}
+
+.footer__nav {
+    @include media-breakpoint-up(lg) {
+        @include fw(100%/12*9);
+    }
+
+    @include media-breakpoint-down(md) {
+        @include fw(100%);
+    }
+}
+
+.footer__link {
+    text-decoration: underline;
+
+    @include media-breakpoint-up(lg) {
+        @include inline-block;
+        margin: 0 45px 0 0;
+    }
+
+    @include media-breakpoint-down(md) {
+        display: block;
+        margin: 0 0 16px;
+    }
+}
+
+.footer__copyright {
+    @include media-breakpoint-up(lg) {
+        @include fw(100%/12*3);
+        text-align: right;
+    }
+
+    @include media-breakpoint-down(md) {
+        @include fw(100%);
+    }
+}

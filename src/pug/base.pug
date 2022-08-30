@@ -1,0 +1,364 @@
+block meta
+  - var title = 'Текстовая страница';
+  - var intro = '';
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+    title #{title} - Время сеять
+    meta(name="keywords" content="")
+    meta(name="description" content="")
+
+    link(href="../img/favicon.ico" rel="shortcut icon")
+
+  body
+    .icons
+    header.header
+      .header__wrapper
+        button.header__toggler.header__toggler_nav(type="button")
+          svg.icon-fluid
+            use(xlink:href="#icon-nav")
+        .header__col.header__col_logo
+          a.logo(href="/")
+            span.logo__top
+              svg.icon-fluid
+                use(xlink:href="#icon-logo-sm")
+            span.logo__bottom
+              svg.icon-fluid
+                use(xlink:href="#icon-logo-lg")
+        .header__col.header__col_nav
+          .header__heading
+            button.header__toggler.header__toggler_nav(type="button")
+              svg.icon-fluid
+                use(xlink:href="#icon-nav")
+            .header__caption Меню
+            button.header__toggler.header__toggler_close(type="button")
+              svg.icon-fluid
+                use(xlink:href="#icon-close")
+          .header__nav
+            nav.nav.nav_top
+              //- .nav__bg
+                svg.icon-fluid
+                  use(xlink:href="#icon-logo-sm")
+              a.nav__item(href="/") Рецепты
+              a.nav__item(href="/") Энциклопедия
+              a.nav__item.nav__item_logo(href="/")
+                svg.icon-fluid
+                  use(xlink:href="#icon-logo-lg")
+              a.nav__item(href="/") Ресторанам
+              a.nav__item(href="/") Контакты
+            nav.nav.nav_bottom
+              a.nav__item(href="/")
+                | Магазин
+                svg.nav__icon
+                  use(xlink:href="#icon-next")
+              a.nav__item.nav__item_current(href="/")
+                | Абонемент
+                svg.nav__icon
+                  use(xlink:href="#icon-next")
+              a.nav__item(href="/")
+                | Ферма
+                svg.nav__icon
+                  use(xlink:href="#icon-next")
+        .header__col.header__col_cart
+          button.header__toggler.header__toggler_profile(type="button" data-toggle="panel" data-target="#office-auth-login")
+            svg.icon-fluid
+              use(xlink:href="#icon-profile")
+          //- button.header__toggler.header__toggler_cart(type="button")
+            span 3
+            svg.icon-fluid
+              use(xlink:href="#icon-cart")
+
+    block wrapper
+      - var items = [{picture: '../img/content/pos/pos-1.jpg'},{picture: '../img/content/pos/pos-1.jpg'},{picture: '../img/content/pos/pos-1.jpg'},{picture: '../img/content/pos/pos-1.jpg'},{picture: '../img/content/pos/pos-1.jpg'}]
+      .wrapper.wrapper_container
+        .section.section_pt
+          .notfound
+            .notfound__picture
+              svg.img-fluid
+                use(xlink:href="#icon-notfound")
+            .notfound__text
+              h1 страница находится в разработке
+            .notfound__footer
+              a.readmore(href="#")
+                | На главную
+                svg.readmore__icon
+                  use(xlink:href="#icon-next")
+          //- .content
+            h1 Результаты поиска
+            p.simplesearch-results 2 результатов найдено для "
+              span.result__highlighted суп
+              | "
+            .simplesearch-paging  Страницы с результатами поиска:1 
+            .simplesearch-results-list
+              .result
+                a.result__title(href="#") 1. Статья о товаре 05
+                .result__desc Капусту любых видов круглый год можно приобрести в 
+                  span.result__highlighted суп
+                  | ермаркетах даже малонаселенных городов. На многих прилавках присутствует также капуста кейл, которая отличается внешним видом от ранее всегда доступной...
+                a.readmore(href="#")
+                  | Читать далее
+                  svg.readmore__icon
+                    use(xlink:href="#icon-next")
+              .result
+                a.result__title(href="#") 1. Статья о товаре 05
+                .result__desc Капусту любых видов круглый год можно приобрести в 
+                  span.result__highlighted суп
+                  | ермаркетах даже малонаселенных городов. На многих прилавках присутствует также капуста кейл, которая отличается внешним видом от ранее всегда доступной...
+                a.readmore(href="#")
+                  | Читать далее
+                  svg.readmore__icon
+                    use(xlink:href="#icon-next")
+              .result
+                a.result__title(href="#") 1. Статья о товаре 05
+                .result__desc Капусту любых видов круглый год можно приобрести в 
+                  span.result__highlighted суп
+                  | ермаркетах даже малонаселенных городов. На многих прилавках присутствует также капуста кейл, которая отличается внешним видом от ранее всегда доступной...
+                a.readmore(href="#")
+                  | Читать далее
+                  svg.readmore__icon
+                    use(xlink:href="#icon-next")
+      #cart.panel.panel_lg.active
+        .panel__wrapper
+          .panel__header
+              button.panel__btn.panel__btn_cart(type="button")
+                //- span 3
+                svg.icon-fluid
+                  use(xlink:href="#icon-cart")
+              .panel__title Корзина
+              button.panel__btn.panel__btn_close(type="button")
+                svg.icon-fluid
+                  use(xlink:href="#icon-close")
+          .panel__body.panel__body_row
+            .panel__col.panel__col_sm
+              .cart.cart_column.cart_centered
+                .content.content_minmb
+                  p Здесь будут отображатся добавленные в корзину товары из нашего магазина.
+                a.readmore(href="#") Посетить магазин
+                  svg.readmore__icon
+                    use(xlink:href="#icon-next")
+                .cart__footer.cart__footer_empty
+                  svg.icon-fluid
+                    use(xlink:href="#icon-sprouts-lg")
+            .panel__col.panel__col_sm
+              //- .infobox
+                a.infobox__picture(href="#")
+                  img.img-fluid(src="../img/content/pos/pos-1.jpg" alt="")
+                .infobox__wrapper
+                  .infobox__content
+                    a.infobox__title(href="#") Абонемент
+                    .infobox__desc Вы можете оформить абонемент и регулярно получать наши продукты сразу с грядки.
+                  .infobox__footer
+                    a.readmore(href="#") Узнать больше
+                      svg.readmore__icon
+                        use(xlink:href="#icon-next")
+              .infobox.infobox_nopicture
+                .infobox__wrapper
+                  .infobox__content
+                    a.infobox__title(href="#") Абонемент
+
+                    .infobox__list
+                      .infobox__desc.infobox__desc_sm Вид:
+                      .infobox__desc.infobox__desc_normal 10 доставок
+                    .infobox__list
+                      .infobox__desc.infobox__desc_sm Текущий номер доставки:
+                      .infobox__desc.infobox__desc_normal 3 (из 10)
+                    .infobox__list
+                      .infobox__desc.infobox__desc_sm День доставки:
+                      .infobox__desc.infobox__desc_normal четверг
+                    .infobox__list
+                      .infobox__desc.infobox__desc_sm Адрес доставки:
+                      .infobox__desc.infobox__desc_normal «Ecofirmica»; Горького 124
+
+                .infobox__footer
+                  .infobox__desc.infobox__desc_sm Код доставки:
+                  .pwd bsd67ewbnzjh
+                  .infobox__desc.infobox__desc_sm Сообщите этот код продавцу, чтобы забрать свои покупки.
+
+      #cart.panel.panel_lg
+        .panel__wrapper
+          .panel__header
+              button.panel__btn.panel__btn_cart(type="button")
+                span 3
+                svg.icon-fluid
+                  use(xlink:href="#icon-cart")
+              .panel__title Корзина
+              button.panel__btn.panel__btn_close(type="button")
+                svg.icon-fluid
+                  use(xlink:href="#icon-close")
+          .panel__body.panel__body_row
+            .panel__col.panel__col_lg
+              .cart.cart_column
+                .cart__wrapper
+                  each item in items
+                    .pos.pos_row
+                      button.pos__close(type="button")
+                        svg.icon-fluid
+                          use(xlink:href="#icon-close")
+                      a.pos__picture(href="#")
+                        img.img-fluid(src=(item.picture) alt="" style="height:80px;")
+                      .pos__wrapper
+                        a.pos__title.pos__title_sm(href="#") Капуста кейл
+                        .pos__footer.pos__footer_row
+                          .recalculate
+                            input.recalculate__field(type="text" value="")
+                            button.recalculate__btn.recalculate__btn_remove(type="button")
+                              svg.icon-fluid
+                                use(xlink:href="#icon-minus")
+                            .recalculate__wrapper
+                              span.recalculate__value 1 
+                              | шт
+                            button.recalculate__btn.recalculate__btn_add(type="button")
+                              svg.icon-fluid
+                                use(xlink:href="#icon-plus")
+                          .pos__price
+                            span.font-weight-bold 599
+                            | руб.
+                .cart__footer
+                  .cart__summ Итого:
+                    br
+                    span.summ.font-weight-bold 4 599
+                    | руб.
+                  a.btn.btn_md(href="#") оформить заказ
+            .panel__col.panel__col_sm
+              .infobox
+                a.infobox__picture(href="#")
+                  img.img-fluid(src="../img/content/pos/pos-1.jpg" alt="")
+                .infobox__wrapper
+                  .infobox__content
+                    a.infobox__title(href="#") Абонемент
+                    .infobox__desc Вы можете оформить абонемент и регулярно получать наши продукты сразу с грядки.
+                  .infobox__footer
+                    a.readmore(href="#") Узнать больше
+                      svg.readmore__icon
+                        use(xlink:href="#icon-next")
+
+      #reg.panel
+        .panel__wrapper
+          .panel__bg
+            svg.icon-fluid
+              use(xlink:href="#icon-panel")
+          .panel__header
+              button.panel__btn(type="button")
+                svg.icon-fluid
+                  use(xlink:href="#icon-user")
+              .panel__title регистрация
+              button.panel__btn.panel__btn_close(type="button")
+                svg.icon-fluid
+                  use(xlink:href="#icon-close")
+          .panel__body
+            form.form.form_mb(action="#" method="post")
+              .form__item
+                input.form__field(type="text" placeholder="Имя")
+              .form__item
+                input.form__field(type="text" placeholder="Почта")
+              .form__item
+                input.form__field(type="text" placeholder="Телефон")
+              .form__item.form__item_mb
+                input.form__toggler(type="checkbox" id="reg__form_private" checked)
+                label.form__label(for="reg__form_private")
+                  span.form__toggler.form__toggler_visible.form__toggler_lg
+                    svg.icon-fluid
+                      use(xlink:href="#icon-star-filled")
+                  span Я даю согласие на обработку персональных данных и соглашаюсь с 
+                    a.text-underline(href="#") политикой конфеденциальности
+              .form__footer
+                button.btn.btn_light(type="submit") зарегистрироваться
+            button.panel__toggler(type="button" data-toggle="panel" data-target="#auth") Войти
+
+      #office-auth-login.panel
+        .panel__wrapper
+          .panel__bg
+            svg.icon-fluid
+              use(xlink:href="#icon-panel-arrows")
+          .panel__header
+              button.panel__btn(type="button")
+                svg.icon-fluid
+                  use(xlink:href="#icon-profile")
+              .panel__title Вход
+              button.panel__btn.panel__btn_close(type="button")
+                svg.icon-fluid
+                  use(xlink:href="#icon-close")
+          .panel__body
+            form.form.form_mb(action="#" method="post")
+              .form__item
+                input#office-auth-login-username.form__field.input-email(type="text" placeholder="Логин")
+              .form__item.form__item_mb
+                input#office-login-form-password.form__field(type="password" placeholder="Пароль" required)
+              .form__footer
+                button.btn(type="submit") Войти
+            button.panel__toggler(type="button" data-toggle="panel" data-target="#office-auth-recovery") Забыли пароль?
+            button.panel__toggler(type="button" data-toggle="panel" data-target="#office-auth-register") Зарегистрироваться
+
+      #office-auth-recovery.panel
+        .panel__wrapper
+          .panel__bg
+            svg.icon-fluid
+              use(xlink:href="#icon-panel-arrows")
+          .panel__header
+              button.panel__btn(type="button")
+                svg.icon-fluid
+                  use(xlink:href="#icon-profile")
+              .panel__title Восстановление пароля
+              button.panel__btn.panel__btn_close(type="button")
+                svg.icon-fluid
+                  use(xlink:href="#icon-close")
+          .panel__body
+            form.form.form_mb(method="post")
+              .form__item.form__item_mb
+                input#office-auth-recovery-username.form__field.input-email(type="text" placeholder="Почта" required)
+              .form__footer
+                button#office-auth-recovery-submit.btn(type="button") Восстановить
+            button.panel__toggler(type="button" data-toggle="panel" data-target="#office-auth-login") Войти
+            button.panel__toggler(type="button" data-toggle="panel" data-target="#office-auth-register") Зарегистрироваться
+
+    footer.footer
+      .wrapper
+        .footer__wrapper
+          .footer__col.footer__col_desc
+            p Подписывайтесь и следите за нашими новостями, там где это удобно:
+            nav.social
+              a.social__item.social__item_instagram(href="#" rel="nofollow" target="_blank")
+                svg.icon-fluid
+                  use(xlink:href="#icon-instagram")
+              a.social__item.social__item_youtube(href="#" rel="nofollow" target="_blank")
+                svg.icon-fluid
+                  use(xlink:href="#icon-youtube")
+          .footer__col.footer__col_logo
+            a.logo.logo_sm(href="/")
+              svg.icon-fluid
+                use(xlink:href="#icon-logo-lg")
+          .footer__col.footer__col_contacts
+            .contacts
+              .contacts__item
+                span.contacts__icon
+                  svg.icon-fluid
+                    use(xlink:href="#icon-placemark")
+                | Ростов-на-Дону, ул. Кумженская, 47.195879, 39.575164
+              a.contacts__item(href="tel:+79094378125")
+                span.contacts__icon
+                  svg.icon-fluid
+                    use(xlink:href="#icon-phone")
+                | +7 909 437 81 25
+              .contacts__item ООО "Время сеять"
+                br
+                | ИНН 614407866996
+                br
+                | ОГРН 1176196011188
+        .footer__bottom
+          nav.footer__nav
+            a.footer__link(href="#") Пользовательское соглашение
+            a.footer__link(href="#") Политика конфиденциальности
+            a.footer__link(href="#") Правила покупки
+          .footer__copyright Все права защищены &copy; 2021 год
+
+    link(rel="preconnect" href="https://fonts.gstatic.com")
+    link(href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Ruda:wght@400;700&display=swap" rel="stylesheet")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js")
+    script(src="https://unpkg.com/swiper@5.4.1/js/swiper.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/core.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/dropdown.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/touch.js")

@@ -1,0 +1,72 @@
+.overlay {
+    @include pos(0,0,fixed);
+    right: 0;
+    bottom: 0;
+    z-index: 1040;
+    background: $color__bg;
+}
+
+.overlay__wrapper {
+    @extend %flex-column;
+    @include pos(0,0);
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+}
+
+.overlay__container {
+    @extend %flex-column;
+    flex-grow: 1;
+
+    @include media-breakpoint-up(xl) {
+        width: (100%/14*4);
+    }
+
+    @include media-breakpoint-only(lg) {
+        width: (100%/14*6);
+    }
+
+    @include media-breakpoint-only(md) {
+        width: (100%/14*8);
+    }
+
+    @include media-breakpoint-only(sm) {
+        width: (100%/14*10);
+    }
+
+    @include media-breakpoint-up(sm) {
+        @include offset(0 auto 32px,60px 0 0);
+    }
+
+    @include media-breakpoint-only(xs) {
+        @include offset(0 0 24px,32px 16px 0);
+    }
+}
+
+.overlay__title {
+    @extend %title-default;
+    display: flex;
+    text-transform: uppercase;
+
+    @include media-breakpoint-up(sm) {
+        margin: 0 0 32px;
+    }
+
+    @include media-breakpoint-only(xs) {
+        margin: 0 0 24px;
+    }
+}
+
+.overlay__icon {
+    @extend %border-default;
+    @include fw(40px);
+    @include wh(40px,40px);
+    @include offset(0 20px 0 0,4px);
+    line-height: 30px;
+}
+
+.overlay__footer {
+    height: 68px;
+    padding: 0 0 44px;
+    text-align: center;
+}

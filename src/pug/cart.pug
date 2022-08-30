@@ -1,0 +1,129 @@
+extends base.pug
+
+block meta
+  - var title = 'Товары';
+
+block wrapper
+  - var positions = [{picture: '../img/content/pos/pos-1.jpg'},{picture: '../img/content/pos/pos-1.jpg'},{picture: '../img/content/pos/pos-1.jpg'},{picture: '../img/content/pos/pos-1.jpg'},{picture: '../img/content/pos/pos-1.jpg'}]
+  .wrapper.wrapper_container
+    .section.section_pt.section_nomb
+      .section__title.text-center Оформление заказа
+    form.cart
+      .cart__container
+        .cart__col.cart__col_offset
+          .cart__title данные пользователя
+          .form
+            .form__item
+              input.form__field.form__field_bg(type="text" placeholder="Имя")
+            .form__item
+              input.form__field.form__field_bg(type="text" placeholder="Почта")
+            .form__item
+              input.form__field.form__field_bg(type="text" placeholder="Телефон")
+            .form__item
+              textarea.form__field.form__field_textarea.form__field_bg(name="contactsform__message" placeholder="Текст сообщения")
+            .form__item
+              input.form__toggler(type="checkbox" id="cart__form_private" checked)
+              label.form__label(for="cart__form_private")
+                span.form__toggler.form__toggler_visible
+                  svg.icon-fluid
+                    use(xlink:href="#icon-star-filled")
+                span Я даю согласие на обработку персональных данных и соглашаюсь с 
+                  a.text-underline(href="#") политикой конфеденциальности
+        .cart__col
+          .cart__title данные покупки
+          .cart__wrapper.cart__wrapper_minmb
+            .pos.pos_sm
+              .pos__wrapper
+                a.pos__title.pos__title_sm Капуста кейл
+                .pos_desc 1 шт.
+                .pos__price
+                  .font-weight-bold 599
+                  | руб.
+              button.pos__close(type="button")
+                svg.icon-fluid
+                  use(xlink:href="#icon-close")
+            .pos.pos_sm
+              .pos__wrapper
+                a.pos__title.pos__title_sm Капуста кейл
+                .pos_desc 1 шт.
+                .pos__price
+                  .font-weight-bold 599
+                  | руб.
+              button.pos__close(type="button")
+                svg.icon-fluid
+                  use(xlink:href="#icon-close")
+          .form
+            .mspc2
+              .mspc2-form
+                input.mspc2-form__input(type="text" name="mspc2_code" value="" placeholder="Промо-код")
+                button.mspc2-form__button.mspc2-form__button_submit(type="button")
+                  svg.icon-fluid
+                    use(xlink:href="#icon-arrow-down")
+                button.mspc2-form__button.mspc2-form__button_cancel
+                  svg.icon-fluid
+                    use(xlink:href="#icon-close")
+              .mspc2-discount-amount
+                | Скидка в корзине: 
+                span.font-weight-bold 0 
+                | руб.
+              .mspc2-description
+              .mspc2-message
+                .mspc2-message__info Промо-код
+                .mspc2-message__error Промо-код отменён
+                .mspc2-message__success Промо-код применён
+            .form__item.form__item_minmb
+              label.form__label.form__label_md Вид абонемента:
+              select.form__select.form__select_single
+                option Тип 1
+                option Тип 2
+                option Тип 3
+            .form__item.form__item_minmb
+              label.form__label.form__label_md Адрес доставки:
+              select.form__select.form__select_single
+                option Адрес 1
+                option Адрес 2
+                option Адрес 3
+            .form__item.form__item_minmb
+              label.form__label.form__label_md У меня есть промокод:
+              input.form__field.form__field_bg(type="text" placeholder="Не выбрано")
+        .cart__footer
+          .cart__summ Итого:
+            br
+            span.summ.font-weight-bold 4 599
+            | руб.
+          a.btn(href="#") оформить заказ
+
+  //- .overlay
+    .overlay__wrapper
+      .overlay__container
+        .overlay__title
+          .overlay__icon
+            svg.icon-fluid
+              use(xlink:href="#icon-checked")
+          | заказ успешно оплачен
+        .infobox.infobox_nopicture.infobox_noborder
+          .infobox__wrapper
+            .infobox__content
+              a.infobox__title(href="#") Данные о покупке отправленны на Вам на почту
+              .infobox__list
+                .infobox__desc.infobox__desc_normal Покупка в магазине фермы ( 8999 руб.)
+              .infobox__list
+                .infobox__desc.infobox__desc_sm День доставки:
+                .infobox__desc.infobox__desc_normal четверг
+              .infobox__list
+                .infobox__desc.infobox__desc_sm Адрес доставки:
+                .infobox__desc.infobox__desc_normal «Ecofirmica»; Горького 124
+            .infobox__footer
+              .infobox__desc.infobox__desc_sm Код доставки:
+              .pwd bsd67ewbnzjh
+              .infobox__desc.infobox__desc_sm Сообщите этот код продавцу, чтобы забрать свои покупки.
+              .infobox__desc.infobox__desc_sm
+                a.text-underline(href="#") сохранить в pdf
+            .infobox__bottom
+              button.btn.btn_sm(type="button") ОК
+              a.readmore(href="#") В магазин
+                svg.readmore__icon
+                  use(xlink:href="#icon-next")
+      .overlay__footer
+        svg.icon-fluid
+          use(xlink:href="#icon-sprouts-long")

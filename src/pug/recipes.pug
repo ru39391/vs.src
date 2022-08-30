@@ -1,0 +1,25 @@
+extends base.pug
+
+block meta
+  - var title = 'Рецепты';
+
+block wrapper
+  - var recipes = [{picture: '../img/content/recipes/recipe-1.jpg'},{picture: '../img/content/recipes/recipe-1.jpg'},{picture: '../img/content/recipes/recipe-1.jpg'},{picture: '../img/content/recipes/recipe-1.jpg'},{picture: '../img/content/recipes/recipe-1.jpg'},{picture: '../img/content/recipes/recipe-1.jpg'},{picture: '../img/content/recipes/recipe-1.jpg'},{picture: '../img/content/recipes/recipe-1.jpg'}]
+  .wrapper.wrapper_container
+    .section.section_flex.section_pt.section_nomb
+      .section__col.section__col_xl
+        .content
+          h1 #{title}
+      .section__col.section__col_md
+        form.search(method="post")
+          input.search__field(type="text" placeholder="Поиск по ингридиенту")
+          button.search__btn(type="submit")
+            svg.icon-fluid
+              use(xlink:href="#icon-search")
+    .section.section_grid.section_grid4x
+      each recipe in recipes
+        .section__col
+          .pos
+            a.pos__picture.pos__picture_mb(href="#")
+              img.img-fluid(src=(recipe.picture) alt="")
+            a.pos__title.pos__title_normal(href="#") Суп с кейлом и чесночными гренками

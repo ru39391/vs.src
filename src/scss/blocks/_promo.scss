@@ -1,0 +1,42 @@
+.promo {
+    @extend %d-flex;
+
+    @include media-breakpoint-up(lg) {
+        margin: 0 0 120px;
+    }
+
+    @include media-breakpoint-down(md) {
+        margin: 0 0 32px;
+    }
+}
+
+.promo__col {
+    @extend %flex-column;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 1px;
+    border: 1px solid $color__title;
+
+    @include media-breakpoint-up(lg) {
+        padding: 40px 40px 30px 55px;
+    }
+
+    @include media-breakpoint-down(md) {
+        padding: 36px 34px 30px;
+    }
+
+    @include media-breakpoint-up(md) {
+        @include fw(100%/12*4);
+    }
+
+    @include media-breakpoint-down(sm) {
+        @include fw(100%);
+    }
+}
+
+.promo__title {
+    @include font(18px,300);
+    line-height: 24px;
+    font-family: $font-family_content;
+    margin: 0 0 18px;
+}

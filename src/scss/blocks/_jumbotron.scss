@@ -1,0 +1,52 @@
+.jumbotron {
+    position: relative;
+    margin: 0 -16px;
+
+    &.jumbotron_nomx {
+        @include media-breakpoint-up(xl) {
+            margin: 0;
+        }
+
+        .jumbotron__item {
+            @include media-breakpoint-up(xl) {
+                padding: 0 52px;
+            }
+        }
+    }
+}
+
+.jumbotron__item {
+    padding: 0 16px;
+}
+
+.jumbotron__picture {
+    &.jumbotron__picture_lg {
+        @include media-breakpoint-only(xs) {
+            display: none;
+        }
+    }
+
+    &.jumbotron__picture_sm {
+        @include media-breakpoint-up(sm) {
+            display: none;
+        }
+    }
+}
+
+.jumbotron__nav {
+    @extend %flex-center;
+    @include pos(50%,0);
+    right: 0;
+    z-index: 2;
+    justify-content: space-between;
+}
+
+.jumbotron__btn {
+    @extend %btn-default;
+    @include fw(115px);
+    @include wh(115px,20px);
+
+    @include media-breakpoint-only(xs) {
+        display: none;
+    }
+}

@@ -1,0 +1,104 @@
+extends base.pug
+
+block meta
+  - var title = 'Паста с кейлом для четырех человек';
+
+block wrapper
+  .wrapper.wrapper_container
+    .section.section_flex.section_nomb.section_pt
+      .section__title.section__title_mobile #{title}
+      .section__col.section__col_lg.section__col_offset.section__col_mb
+        img.img-fluid.border-radius(src="../img/content/box.png" alt="")
+      .section__col.section__col_mb
+        .section__title.section__title_desktop #{title}
+        .prodlist.prodlist_normal
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Томаты красные
+            .prodlist__value 1500 г.
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Капуста брюсельская
+            .prodlist__value 1500 г. | качан
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Итальянский брокколи
+            .prodlist__value 1200 г. | качан
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Листья салата
+            .prodlist__value 150 г. | большой пучёк
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Чеснок альпийский
+            .prodlist__value 100 г. | 3 головки
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Пряные травы
+            .prodlist__value 130 г. | большой пучёк
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Огурцы продолговатые
+            .prodlist__value 1500 г.
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Перец Чили
+            .prodlist__value 700 г.
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Болгаргский перец
+            .prodlist__value 800 г.
+
+    .section.section_container.section_nomb
+      .content
+        ul
+          li
+            span.list-icon
+              svg.icon-fluid
+                use(xlink:href="#icon-star")
+            | Очистить кейл от толстых черешков. В кастрюлю с кипящей водой на одну минуту положить кейл и чеснок, кейл должен стать ошпаренным и изменить цвет, стать немного мягким. Всё вынуть шумовкой и положить в стакан блендра.
+          li
+            span.list-icon
+              svg.icon-fluid
+                use(xlink:href="#icon-star")
+            | В кипящую воду от кейла положить пасту и варить до готовности.
+          li
+            span.list-icon
+              svg.icon-fluid
+                use(xlink:href="#icon-star")
+            | Пока варится паста, натереть сыр, половину положить в блендр, туда же орехи, ветку базилика, оливковое масло, немного горячей воды, в которой варится паста, соль и лимоный сок по вкусу, блэндировать.
+          li
+            span.list-icon
+              svg.icon-fluid
+                use(xlink:href="#icon-star")
+            | Слить воду и в этой кастрюле соеденить пасту и соус, выложив на тарелки, посыпать сыром и листьями базилика. Приятного аппетита!
+
+    .divider.divider_flex.divider_pb
+      a.readmore(href="#")
+        | В магазин
+        svg.readmore__icon
+          use(xlink:href="#icon-next")
+
+    .section.section_nomb.text-center
+      .section__subtitle.section__subtitle_minmb смотрите похожие рецепты:
+    .section.section_container.section_grid.section_grid4x
+      .section__col
+        .pos
+          a.pos__picture.pos__picture_mb(href="#")
+            img.img-fluid(src="../img/content/recipes/recipe-1.jpg" alt="")
+          a.pos__title.pos__title_normal(href="#") Суп с кейлом и чесночными гренками
+      .section__col
+        .pos
+          a.pos__picture.pos__picture_mb(href="#")
+            img.img-fluid(src="../img/content/recipes/recipe-1.jpg" alt="")
+          a.pos__title.pos__title_normal(href="#") Суп с кейлом и чесночными гренками
+      .section__col
+        .pos
+          a.pos__picture.pos__picture_mb(href="#")
+            img.img-fluid(src="../img/content/recipes/recipe-1.jpg" alt="")
+          a.pos__title.pos__title_normal(href="#") Суп с кейлом и чесночными гренками
+      .section__col
+        .pos
+          a.pos__picture.pos__picture_mb(href="#")
+            img.img-fluid(src="../img/content/recipes/recipe-1.jpg" alt="")
+          a.pos__title.pos__title_normal(href="#") Суп с кейлом и чесночными гренками

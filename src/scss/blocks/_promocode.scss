@@ -1,0 +1,76 @@
+.mspc2 {
+    margin: 0 0 28px;
+    font-family: $font-family_content;
+}
+
+.mspc2-form {
+    @extend %border-default;
+    position: relative;
+    margin: 0 0 12px;
+
+    &.is-active {
+        .mspc2-form__button_submit {
+            display: none;
+        }
+    
+        .mspc2-form__button_cancel {
+            display: block;
+        }
+
+        & + .mspc2-discount-amount {
+			display: block;
+		}
+    }
+}
+
+.mspc2-form__input {
+    @extend .form__field;
+    @extend .form__field.form__field_bg;
+    padding-right: 40px;
+    border: 0;
+}
+
+.mspc2-form__button {
+    @extend %btn-default;
+    @extend .category__toggler;
+    pointer-events: all;
+
+    &.mspc2-form__button_submit {
+        .img-fluid {
+            transform: rotate(-90deg);
+        }
+    }
+
+    &.mspc2-form__button_cancel {
+        display: none;
+    }
+
+    .icon-fluid {
+        transform: rotate(-90deg);
+    }
+}
+
+.mspc2-discount-amount {
+    display: none;
+    margin: 0 0 8px;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.mspc2-description {
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.mspc2-message {
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.mspc2-message__success {
+    color: $color__success;
+}
+
+.mspc2-message__error {
+    color: $color__danger;
+}

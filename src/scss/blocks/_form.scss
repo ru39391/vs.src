@@ -1,0 +1,163 @@
+.form {
+    &.form_row {
+        @extend %d-flex;
+        justify-content: center;
+    }
+
+    &.form_mb {
+        @include media-breakpoint-up(md) {
+            margin: 0 0 48px;
+        }
+    
+        @include media-breakpoint-down(sm) {
+            margin: 0 0 40px;
+        }
+    }
+}
+
+.form__col {
+    @include media-breakpoint-up(xl) {
+        @include fw(100%/12*3);
+    }
+
+    @include media-breakpoint-only(lg) {
+        @include fw(100%/12*4);
+    }
+
+    @include media-breakpoint-only(md) {
+        @include fw(100%/12*5);
+    }
+
+    @include media-breakpoint-up(md) {
+        margin: 0 0 18px;
+        margin-left: (100%/12);
+    }
+
+    @include media-breakpoint-down(sm) {
+        @include fw(100%);
+    }
+
+    &:first-child {
+        margin-left: 0;
+    }
+}
+
+.form__item {
+    margin: 0 0 38px;
+
+    &.form__item_mb {
+        @include media-breakpoint-up(md) {
+            margin: 0 0 44px;
+        }
+    
+        @include media-breakpoint-down(sm) {
+            margin: 0 0 40px;
+        }
+    }
+
+    &.form__item_minmb {
+        margin: 0 0 28px;
+    }
+}
+
+.form__field {
+    @extend %border-default;
+    @include wh(100%,32px);
+    padding: 6px 18px;
+    font-weight: 300;
+    line-height: 20px;
+    font-family: $font-family_content;
+
+    &.form__field_bg {
+        background: $color__bg;
+    }
+
+    &.form__field_textarea {
+        height: 90px;
+        resize: none;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    &.error {
+        border-color: $color__danger !important;
+
+        & + .fs-dropdown-selected {
+            border-color: $color__danger !important;
+        }
+
+        & + .form__error {
+            display: block;
+        }
+    }
+}
+
+.form__error {
+    @include font(14px,300);
+    @include offset(0 0 8px,8px 0 0);
+    display: none;
+    line-height: 20px;
+    color: $color__danger;
+}
+
+.form__toggler {
+    display: none;
+
+    &.form__toggler_visible {
+        @extend %flex-column;
+        @extend %border-default;
+        @include fw(20px);
+        @include wh(20px,20px);
+        @include offset(2px 12px 0 0,2px);
+        align-items: center;
+        justify-content: center;
+
+        &.form__toggler_lg {
+            @include fw(32px);
+            @include wh(32px,32px);
+            margin: 0 18px 0 0;
+        }
+
+        .icon-fluid {
+            opacity: 0;
+        }
+    }
+
+    &.form__toggler_lg {
+        @include fw(32px);
+        @include wh(32px,32px);
+        padding: 4px;
+    }
+
+    & + .form__label {
+        @extend %flex-center;
+        cursor: pointer;
+    }
+
+    &:checked + .form__label {
+        .icon-fluid {
+            opacity: 1;
+        }
+    }
+}
+
+.form__label {
+    @include font(14px,300);
+    line-height: 20px;
+    font-family: $font-family_content;
+
+    &.form__label_md {
+        display: block;
+        margin: 0 0 8px;
+    }
+
+    .font-weight-bold {
+        font-size: 18px;
+        letter-spacing: 0.05em;
+        font-family: $font-family_default;
+    }
+}
+
+.form__footer {
+    @include fw(100%);
+}

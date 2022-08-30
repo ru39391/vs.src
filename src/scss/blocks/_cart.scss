@@ -1,0 +1,128 @@
+.cart {
+    position: relative;
+
+    &.cart_column {
+        margin-bottom: 30px;
+        
+        @include media-breakpoint-up(lg) {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        &.cart_centered {
+            justify-content: center;
+        }
+
+        .cart__footer {
+            flex: 0 0 auto;
+            max-width: initial;
+        }
+    }
+}
+
+.cart__container {
+    @extend %d-flex;
+    justify-content: center;
+    margin-bottom: 52px;
+
+    @include media-breakpoint-up(lg) {
+        width: (100%/12*10);
+        margin-left: (100%/12);
+    }
+}
+
+.cart__wrapper {
+    @include media-breakpoint-up(md) {
+        margin: 0 0 52px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        margin: 0 0 30px;
+    }
+
+    &.cart__wrapper_minmb {
+        margin: 0 0 20px;
+    }
+}
+
+.cart__col {
+    margin: 0 0 16px;
+
+    @include media-breakpoint-up(lg) {
+        @include fw(100%/10*4);
+    }
+
+    @include media-breakpoint-down(md) {
+        @include fw(100%);
+    }
+
+    &.cart__col_offset {
+        @include media-breakpoint-up(lg) {
+            margin-right: (100%/10*2);
+        }
+    }
+}
+
+.cart__title {
+    @extend .section__title;
+    @extend .section__title.section__title_subtitle;
+}
+
+.cart__summ {
+    @include font(14px,300);
+    line-height: 20px;
+    font-family: $font-family_content;
+
+    @include media-breakpoint-up(lg) {
+        margin: 0 16px 0 0;
+    }
+
+    @include media-breakpoint-down(md) {
+        margin: 0 0 16px;
+    }
+
+    .font-weight-bold {
+        @include fs-lh(18px,22px);
+        letter-spacing: 0.05em;
+        font-family: $font-family_title;
+        margin: 0 4px 0 0;
+    }
+}
+
+.cart__footer {
+    @extend %flex-center;
+    @include fw(100%);
+    justify-content: center;
+    background: #fff;
+    border-radius: 1px;
+    border: 1px solid $color__border;
+
+    @include media-breakpoint-up(md) {
+        padding: 20px 8px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        padding: 20px 32px;
+    }
+
+    @include media-breakpoint-down(md) {
+        flex-direction: column;
+    }
+
+    &.cart__footer_empty {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 0;
+        padding: 0;
+        height: 72px;
+        background: none;
+
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
+}

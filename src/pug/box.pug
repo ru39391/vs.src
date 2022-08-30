@@ -1,0 +1,147 @@
+extends base.pug
+
+block meta
+  - var title = 'Абонемент';
+
+block wrapper
+  .wrapper.wrapper_container
+    .section.section_flex.section_pt
+      .section__col.section__col_mr
+        .content
+          h1 #{title}
+          p С 2016 года мы привозим овощи и зелень с нашей органической фермы по абонементу. Абонемент — это большой пакет свежих овощей раз в неделю. Ассортимент овощей мы заботливо для вас сами.
+          p Наш сезон сбора урожая длится с марта по декабрь. Весной в доставке по абонементу больше разнообразной зелени. А летом и осенью томаты, корнеплоды и много всего вкусного и необычного.
+        .section__footer
+          svg.icon-fluid
+            use(xlink:href="#icon-stars")
+      .section__col
+        .jumbotron.jumbotron_nomx
+          .jumbotron__slides.swiper-container
+            .swiper-wrapper
+              .jumbotron__item.swiper-slide
+                img.img-fluid.border-radius(src="../img/content/slides/slide-1.jpg" alt="")
+              .jumbotron__item.swiper-slide
+                img.img-fluid.border-radius(src="../img/content/slides/slide-2.jpg" alt="")
+              .jumbotron__item.swiper-slide
+                img.img-fluid.border-radius(src="../img/content/slides/slide-3.jpg" alt="")
+              .jumbotron__item.swiper-slide
+                img.img-fluid.border-radius(src="../img/content/slides/slide-4.jpg" alt="")
+            .jumbotron__nav
+              button.jumbotron__btn.jumbotron__btn_prev(type="button")
+                svg.icon-fluid
+                  use(xlink:href="#icon-prev-lg")
+              button.jumbotron__btn.jumbotron__btn_next(type="button")
+                svg.icon-fluid
+                  use(xlink:href="#icon-next-lg")
+
+    .section.section_flex
+      .section__title.text-center Доставка на этой неделе
+      .section__col.section__col_lg.section__col_offset.text-center
+        img.img-fluid.border-radius(src="../img/content/box.png" alt="")
+      .section__col
+        .prodlist
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Томаты красные
+            .prodlist__value 1500 г.
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Капуста брюсельская
+            .prodlist__value 1500 г. | качан
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Итальянский брокколи
+            .prodlist__value 1200 г. | качан
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Листья салата
+            .prodlist__value 150 г. | большой пучёк
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Чеснок альпийский
+            .prodlist__value 100 г. | 3 головки
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Пряные травы
+            .prodlist__value 130 г. | большой пучёк
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Огурцы продолговатые
+            .prodlist__value 1500 г.
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Перец Чили
+            .prodlist__value 700 г.
+          .prodlist__item
+            .prodlist__title
+              span.prodlist__title-value Болгаргский перец
+            .prodlist__value 800 г.
+
+    .section.section_divider.section_bg.section_border
+      .section__col
+        .content
+          p Все заказанные абонементы мы доставляем в Ростов каждый четверг. Их можно забрать самостоятельно в эко-магазинах 
+            a.text-underline(href="#") наших партнеров.
+          p Объем и ассортимент еженедельного набора овощей и зелени зависит от сезона и урожая. Но это неизменно большой пакет свежих овощей. Все овощи мы собираем с грядок накануне доставки.
+        .section__footer
+          svg.icon-fluid
+            use(xlink:href="#icon-sprouts")
+      .section__col
+        .section__tab.active
+          .infobox.infobox_row.infobox_noborder
+            .infobox__content
+              .infobox__title Текущий абонемент
+              .infobox__list
+                .infobox__desc.infobox__desc_sm Номер доставки:
+                .infobox__desc.infobox__desc_normal 1 (из 5)
+              .infobox__list
+                .infobox__desc.infobox__desc_sm Адрес доставки:
+                .infobox__desc.infobox__desc_normal Магазин «Ecofirmica»; Ростов-на-Дону, Пушкинская, 163
+            .infobox__footer.infobox__footer_bordered
+              .infobox__desc.infobox__desc_sm Код доставки абонемента:
+              .pwd anmy7qewlcp2
+              .infobox__desc.infobox__desc_sm Сообщите этот код продавцу, чтобы забрать свою покупки.
+        .section__tab
+          form.form.ms2_form(method="post")
+            .form__item
+              input.form__toggler(type="radio" name="delivery" id="delivery-1")
+              label.form__label(for="delivery-1")
+                span.form__toggler.form__toggler_lg.form__toggler_visible
+                  svg.icon-fluid
+                    use(xlink:href="#icon-star-filled")
+                span Пять доставок - 
+                  span.font-weight-bold 6 599 
+                  | руб.
+            .form__item
+              input.form__toggler(type="radio" name="delivery" id="delivery-2")
+              label.form__label(for="delivery-2")
+                span.form__toggler.form__toggler_lg.form__toggler_visible
+                  svg.icon-fluid
+                    use(xlink:href="#icon-star-filled")
+                span Десять доставок - 
+                  span.font-weight-bold 12 599 
+                  | руб.
+            button.btn(type="submit" name="ms2_action" value="cart/add") Заказать абонемент
+      .section__footer.section__footer_plain.text-center
+        button.btn.tab-toggler(type="button")
+          span.tab-toggler_show.zi-2 Заказать еще абонемент
+          span.tab-toggler_hide.zi-2 Активный абонемент
+
+    .section.section_flex.text-center
+      .section__subtitle Самые частые вопросы про абонемент
+      .section__col.section__col_md.section__col_px
+        .content
+          h3 Какой бывает абонемент?
+          p Наш абонемент на 5 или 10 доставок. Доставка набора подписчику раз в неделю, в четверг по одному из выбранных адресов.
+      .section__col.section__col_md.section__col_px
+        .content
+          h3 Какой объем доставки?
+          p Это большой пакет свежих овощей. Каждую неделю мы внимательно подбираем ассортимент. Все наши подписчики получают одинаковый  набор овощей. Смотрите как выглядят наши наборы на сайте или по хэштегу: #подписканабатат
+      .section__col.section__col_md.section__col_px
+        .content
+          h3 Как забрать свой абонемент?
+          p После оформления заказа вы получите специальный одноразовый код, который надо будет продиктовать продавцу по выбранному Вами адресу. Адрес доставки можно сменить в личном кабинете сайта. Код действителен на текущую доставку.
+      .section__col.section__col_fw
+        .section__footer.section__footer_lg
+          svg.icon-fluid
+            use(xlink:href="#icon-questions")          

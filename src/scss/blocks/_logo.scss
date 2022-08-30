@@ -1,0 +1,53 @@
+.logo {
+    @include inline-block;
+    transform: all .3s ease;
+
+    @include media-breakpoint-up(lg) {
+        @include wh(65px,65px);
+    }
+
+    &.logo_sm {
+        @include wh(220px,50px);
+    }
+}
+
+.logo__top {
+    transform: all .3s ease;
+
+    @include media-breakpoint-down(md) {
+        display: none;
+    }
+}
+
+.logo__bottom {
+    transform: all .3s ease;
+
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
+
+    @include media-breakpoint-down(md) {
+        @include wh(220px,50px);
+        overflow: hidden;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+.affix {
+    .logo {
+        @include media-breakpoint-up(xl) {
+            @include wh(90px,45px);
+        }
+
+        @include media-breakpoint-down(lg) {
+            @include wh(80px,45px);
+        }
+    }
+
+    .logo__bottom {
+        @include media-breakpoint-down(md) {
+            height: 0;
+        }
+    }
+}

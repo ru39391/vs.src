@@ -1,0 +1,22 @@
+.social {
+    @extend %d-flex;
+}
+
+.social__item {
+    @include fw(30px);
+    @include wh(30px,30px);
+    @include inline-block;
+    margin: 0 28px 0 0;
+    transition: all .3s ease;
+
+    &:hover {
+        @include media-breakpoint-up(lg) {
+            opacity: 0.8;
+        }
+    }
+
+    &.social__item_youtube {
+        @include fw(44px);
+        width: 44px;
+    }
+}

@@ -1,0 +1,41 @@
+.wrapper {
+    transition: all .3s ease;
+
+    &.wrapper_container {
+        @include media-breakpoint-up(lg) {
+            padding-top: 216px;
+        }
+    
+        @include media-breakpoint-between(sm,md) {
+            padding-top: 159px;
+        }
+    
+        @include media-breakpoint-only(xs) {
+            padding-top: 231px;
+        }
+    }
+}
+
+.main-page {
+    .wrapper {
+        &.wrapper_container {
+            @include media-breakpoint-up(lg) {
+                padding-top: 176px;
+            }
+        }
+    }
+}
+
+.affix {
+    & + .wrapper {
+        &.wrapper_container {
+            @include media-breakpoint-up(lg) {
+                padding-top: 61px;
+            }
+    
+            @include media-breakpoint-down(md) {
+                padding-top: 81px;
+            }
+        }
+    }
+}

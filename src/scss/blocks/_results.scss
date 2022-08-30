@@ -1,0 +1,27 @@
+.simplesearch-paging {
+    margin: 0 0 16px;
+}
+
+.result {
+    margin: 0 0 24px;
+}
+
+.result__title {
+    @include inline-block;
+    @include font(18px,700);
+    margin: 0 0 8px;
+    text-decoration: underline;
+}
+
+.result__desc {
+    margin: 0 0 8px;
+    font-weight: 300;
+    line-height: 22px;
+    font-family: $font-family_content;
+}
+
+.result__highlighted {
+    @include inline-block;
+    color: #fff;
+    background: $color__danger;
+}

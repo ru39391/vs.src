@@ -1,0 +1,23 @@
+.section.section_bg
+	.section__title.section__title_subtitle.text-center Есть вопросы? Оставьте заявку и мы 
+		br
+		| свяжемся с вами в ближайшее время.
+	form.form.form_row(method="post")
+		.form__col
+			.form__item
+				input.form__field(type="text" placeholder="Имя" value="")
+			.form__item
+				input.form__field(type="text" placeholder="Почта" value="")
+		.form__col
+			.form__item
+				input.form__field(type="text" placeholder="Телефон" value="")
+			.form__item
+				input.form__toggler(type="checkbox" id="contacts__form_private" checked)
+				label.form__label(for="contacts__form_private")
+					span.form__toggler.form__toggler_visible
+						svg.icon-fluid
+							use(xlink:href="#icon-star-filled")
+					span Я даю согласие на обработку персональных данных и соглашаюсь с 
+						a.text-underline(href="#") политикой конфеденциальности
+		.form__footer.text-center
+			button.btn(type="sumbit") Отправить

@@ -1,0 +1,51 @@
+extends base.pug
+
+block meta
+  - var title = 'Главная';
+
+block wrapper
+  - var slides = [{picture: '../img/content/slides/slide-1.jpg'},{picture: '../img/content/slides/slide-2.jpg'},{picture: '../img/content/slides/slide-3.jpg'},{picture: '../img/content/slides/slide-4.jpg'},{picture: '../img/content/slides/slide-5.jpg'},{picture: '../img/content/slides/slide-6.jpg'}]
+  .wrapper.wrapper_container
+    .jumbotron
+      .swiper-container
+        .swiper-wrapper
+          each slide in slides
+            .jumbotron__item.swiper-slide
+              img.img-fluid(src=(slide.picture) alt="")
+        .jumbotron__nav
+          button.jumbotron__btn.jumbotron__btn_prev(type="button")
+            svg.icon-fluid
+              use(xlink:href="#icon-prev-lg")
+          button.jumbotron__btn.jumbotron__btn_next(type="button")
+            svg.icon-fluid
+              use(xlink:href="#icon-next-lg")
+    .promo
+      .promo__col
+        .promo__title Каждую неделю возим органические овощи в Ростов
+        a.readmore(href="#")
+          | Магазин
+          svg.readmore__icon
+            use(xlink:href="#icon-next")
+
+      .promo__col
+        .promo__title Выбираем только самые лучшие продукты для Вас
+        a.readmore(href="#")
+          | Абонемент
+          svg.readmore__icon
+            use(xlink:href="#icon-next")
+
+      .promo__col
+        .promo__title Выращиваем в гармонии с природой с 2014 года
+        a.readmore(href="#")
+          | Ферма
+          svg.readmore__icon
+            use(xlink:href="#icon-next")
+
+    .section.section_container.section_minmb.text-center
+      .content
+        p Привет! Это Настя, Серёжа и Костя и наша новая совместная ферма - Время сеять созданная на Ростовской земле в дельте реки Дон. Мы выращиваем более 80 видов овощей и трав, так же цветы на срезку. На нашей ферме мы используем принципы органического земледелия, которые позволяют повысить плодородие почв, сохранить биологическое разнообразие и делают наши овощи максимально полезными. Мы выращиваем овощи без химических удобрений  и ядохимикатов. Мы стремимся к разнообразию в пище, здоровому рациону и подлинному вкусу овощей.
+
+    .divider.divider_noborder
+      .divider__icon.divider__icon_lg
+        svg.icon-fluid
+          use(xlink:href="#icon-sprouts-lg")

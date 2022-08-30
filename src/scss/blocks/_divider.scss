@@ -1,0 +1,33 @@
+.divider {
+    @include border(0 0 1px,$color__title);
+
+    @include media-breakpoint-up(lg) {
+        margin: 0 0 52px;
+    }
+
+    @include media-breakpoint-down(md) {
+        margin: 0 0 36px;
+    }
+
+    &.divider_flex {
+        display: flex;
+        justify-content: center;
+    }
+
+    &.divider_pb {
+        padding: 0 0 30px;
+    }
+
+    &.divider_noborder {
+        border: 0;
+    }
+}
+
+.divider__icon {
+    @include wh(124px,20px);
+    margin: 0 auto -1px;
+
+    &.divider__icon_lg {
+        @include wh(166px,44px);
+    }
+}

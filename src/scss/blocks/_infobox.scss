@@ -1,0 +1,148 @@
+.infobox {
+    @extend %flex-column;
+    height: 100%;
+    margin: 0 0 30px;
+    border: 1px solid $color__border;
+
+    &.infobox_nopicture {
+        padding: 40px 20px;
+
+        .infobox__wrapper {
+            padding: 0;
+        }
+
+        .infobox__content {
+            margin: 0;
+        }
+
+        .infobox__footer {
+            padding: 16px 22px;
+            border: 1px solid $color__border;
+        }
+    }
+
+    &.infobox_noborder {
+        height: auto;
+        margin: 0;
+        border: 0;
+        flex-grow: 1;
+
+        @include media-breakpoint-up(sm) {
+            padding: 0 0 0 60px;
+        }
+    
+        @include media-breakpoint-only(xs) {
+            padding: 0;
+        }
+
+        .infobox__content {
+            flex-grow: 1;
+            margin: 0 0 30px;
+        }
+
+        .infobox__footer {
+            margin: 0 0 16px;
+        }
+    }
+
+    &.infobox_row {
+        padding: 0;
+
+        @include media-breakpoint-up(xl) {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        .infobox__content {
+            @include media-breakpoint-up(xl) {
+                @include fw(100%/12*6);
+                @include offset(0,0 24px 0 0);
+            }
+        }
+
+        .infobox__footer {
+            @include media-breakpoint-up(xl) {
+                flex-grow: 1;
+            }
+        }
+    }
+}
+
+.infobox__picture {
+    display: block;
+    margin: 0 0 20px;
+}
+
+.infobox__wrapper {
+    @extend %flex-column;
+    flex-grow: 1;
+    justify-content: space-between;
+
+    @include media-breakpoint-up(sm) {
+        padding: 0 40px 50px;
+    }
+
+    @include media-breakpoint-only(xs) {
+        padding: 0 16px 32px;
+    }
+}
+
+.infobox__content {
+    margin: 0 0 32px;
+}
+
+.infobox__title {
+    @include font(18px,700);
+    line-height: 22px;
+    display: block;
+    margin: 0 0 20px;
+    letter-spacing: 0.05em;
+}
+
+.infobox__desc {
+    @include font(16px,300);
+    line-height: 22px;
+    font-family: $font-family_content;
+
+    &.infobox__desc_sm {
+        @include font(14px,300);
+        line-height: 20px;
+        margin: 0 0 8px;
+    }
+
+    &.infobox__desc_normal {
+        @include font(14px,400);
+        line-height: 20px;
+    }
+}
+
+.infobox__list {
+    margin: 0 0 30px;
+
+    &:last-child {
+        margin: 0;
+    }
+
+    .infobox__desc {
+        margin: 0 0 1px;
+    }
+}
+
+.infobox__bottom {
+    @extend %flex-center;
+    justify-content: space-between;
+}
+
+.infobox__footer {
+    &.infobox__footer_bordered {
+        border: 1px solid #000;
+
+        @include media-breakpoint-up(sm) {
+            padding: 16px 22px;
+        }
+    
+        @include media-breakpoint-only(xs) {
+            padding: 16px;
+        }
+    }
+}

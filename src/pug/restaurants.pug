@@ -1,0 +1,37 @@
+extends base.pug
+
+block meta
+  - var title = 'Ресторанам';
+
+block wrapper
+  .wrapper.wrapper_container
+    .section.section_flex.section_pt
+      .section__col.section__col_mr
+        .content
+          h1 #{title}
+          p С 2016 года мы привозим овощи и зелень с нашей органической фермы по абонементу. Абонемент — это большой пакет свежих овощей раз в неделю. Ассортимент овощей мы заботливо для вас сами.
+          p Наш сезон сбора урожая длится с марта по декабрь. Весной в доставке по абонементу больше разнообразной зелени. А летом и осенью томаты, корнеплоды и много всего вкусного и необычного.
+        .section__footer
+          svg.icon-fluid
+            use(xlink:href="#icon-stars")
+      .section__col
+        .jumbotron.jumbotron_nomx
+          .jumbotron__slides.swiper-container
+            .swiper-wrapper
+              .jumbotron__item.swiper-slide
+                img.img-fluid.border-radius(src="../img/content/slides/slide-1.jpg" alt="")
+              .jumbotron__item.swiper-slide
+                img.img-fluid.border-radius(src="../img/content/slides/slide-2.jpg" alt="")
+              .jumbotron__item.swiper-slide
+                img.img-fluid.border-radius(src="../img/content/slides/slide-3.jpg" alt="")
+              .jumbotron__item.swiper-slide
+                img.img-fluid.border-radius(src="../img/content/slides/slide-4.jpg" alt="")
+            .jumbotron__nav
+              button.jumbotron__btn.jumbotron__btn_prev(type="button")
+                svg.icon-fluid
+                  use(xlink:href="#icon-prev-lg")
+              button.jumbotron__btn.jumbotron__btn_next(type="button")
+                svg.icon-fluid
+                  use(xlink:href="#icon-next-lg")
+
+    include includes/form.pug

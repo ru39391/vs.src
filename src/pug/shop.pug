@@ -1,0 +1,67 @@
+extends base.pug
+
+block meta
+  - var title = 'Товары';
+
+block wrapper
+  - var positions = [{picture: '../img/content/pos/pos-1.jpg'},{picture: '../img/content/pos/pos-1.jpg'},{picture: '../img/content/pos/pos-1.jpg'},{picture: '../img/content/pos/pos-1.jpg'},{picture: '../img/content/pos/pos-1.jpg'}]
+  .wrapper.wrapper_container
+    .section.section_pt.section_minmb.text-center
+      nav.category
+        button.category__placeholder(type="button")
+          | Все овощи
+          span.category__toggler
+            svg.icon-fluid
+              use(xlink:href="#icon-arrow-down")
+        .category__list
+          a.category__item(href="#") Категория
+          a.category__item(href="#") Категория
+          a.category__item(href="#") Категория
+          a.category__item(href="#") Категория
+          a.category__item(href="#") Категория
+          a.category__item(href="#") Категория
+          a.category__item(href="#") Категория
+    .section.section_grid.section_grid3x
+      .section__col
+        .pos
+          a.pos__picture(href="#")
+            img.img-fluid(src="../img/bg/noimage.jpg" alt="")
+          a.pos__title(href="#") капуста кейл
+          .pos__bottom
+            .pos__price Цена: 
+              span.font-weight-bold 599 
+              | руб.
+            .pos__footer
+              a.pos__readmore(href="#") Узнать больше
+                svg.icon-fluid
+                  use(xlink:href="#icon-next")
+              form(method="post")
+                button.btn(type="submit") Добавить в корзину
+      each pos in positions
+        .section__col
+          .pos
+            a.pos__picture(href="#")
+              img.img-fluid(src=(pos.picture) alt="")
+            a.pos__title(href="#") капуста кейл
+            .pos__bottom
+              .pos__price Цена: 
+                span.font-weight-bold 599 
+                | руб.
+              .pos__footer
+                a.pos__readmore(href="#") Узнать больше
+                  svg.icon-fluid
+                    use(xlink:href="#icon-next")
+                form(method="post")
+                  button.btn(type="submit") Добавить в корзину
+    nav.pagination
+      a.pagination__control.pagination__control_prev(href="#")
+        svg.icon-fluid
+          use(xlink:href="#icon-next")
+      a.pagination__item(href="#") 1
+      a.pagination__item(href="#") 2
+      span.pagination__item.pagination__item_current 3
+      a.pagination__item(href="#") 4
+      a.pagination__item(href="#") 5
+      a.pagination__control.pagination__control_next(href="#")
+        svg.icon-fluid
+          use(xlink:href="#icon-next")

@@ -1,0 +1,47 @@
+extends base.pug
+
+block meta
+  - var title = 'Адреса доставки';
+
+block wrapper
+  .wrapper.wrapper_container
+    .section.section_pt
+      .section__title.text-center
+        h1 #{title}
+      .map
+
+    .section.section_flex
+      .section__col.section__col_sm
+        .contacts.contacts_px
+          .contacts__title
+            span.contacts__icon
+              svg.icon-fluid
+                use(xlink:href="#icon-star")
+            | Магазин «Ecofirmica»;
+          .contacts__item г. Ростов-на-Дону, Горького 124
+      .section__col.section__col_sm
+        .contacts.contacts_px
+          .contacts__title
+            span.contacts__icon
+              svg.icon-fluid
+                use(xlink:href="#icon-star")
+            | Магазин «Ecofirmica»;
+          .contacts__item г. Ростов-на-Дону, Горького 124
+      .section__col.section__col_sm
+        .contacts.contacts_px
+          .contacts__title
+            span.contacts__icon
+              svg.icon-fluid
+                use(xlink:href="#icon-star")
+            | Магазин «Ecofirmica»;
+          .contacts__item г. Ростов-на-Дону, Горького 124
+      .section__col.section__col_sm
+        .contacts.contacts_px
+          .contacts__title
+            span.contacts__icon
+              svg.icon-fluid
+                use(xlink:href="#icon-star")
+            | Магазин «Ecofirmica»;
+          .contacts__item г. Ростов-на-Дону, Горького 124
+
+    include includes/form.pug

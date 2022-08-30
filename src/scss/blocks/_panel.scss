@@ -1,0 +1,229 @@
+.panel {
+    @include before;
+    @include pos(0,50%,fixed);
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: 1040;
+    pointer-events: none;
+    transition: opacity .3s ease .2s, transform .6s ease 0s;
+    box-shadow: 1px 1px 16px 0 rgba(153, 142, 142, 0.25);
+
+    @include media-breakpoint-up(md) {
+        transform: translateX(100%);
+    }
+
+    @include media-breakpoint-down(sm) {
+        left: 0;
+        transform: translateY(100%);
+    }
+
+    &:before {
+        @extend %zi-1;
+        position: fixed;
+        top: 0;
+        left: -10000px;
+        bottom: 0;
+        width: 10000px;
+        opacity: 0;
+        background: #5B5858;
+        transition: opacity .3s ease .1s;
+    }
+
+    &.panel_lg {
+        @include media-breakpoint-up(xl) {
+            left: (100%/14*4);
+        }
+
+        @include media-breakpoint-only(lg) {
+            left: (100%/14);
+        }
+
+        .panel__header {
+            @include media-breakpoint-up(xl) {
+                @include px(100%/10);
+            }
+
+            @include media-breakpoint-between(md,lg) {
+                @include px(100%/20);
+            }
+
+            @include media-breakpoint-down(sm) {
+                @include px(16px);
+            }
+        }
+
+        .panel__body {
+            padding-top: 0;
+
+            @include media-breakpoint-up(xl) {
+                @include px(100%/10);
+            }
+
+            @include media-breakpoint-between(md,lg) {
+                @include px(100%/20);
+            }
+
+            @include media-breakpoint-down(sm) {
+                @include px(16px);
+            }
+        }
+    }
+
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+
+        @include media-breakpoint-up(md) {
+            transform: translateX(0);
+        }
+    
+        @include media-breakpoint-down(sm) {
+            transform: translateY(0);
+        }
+
+        &:before {
+            opacity: 0.2;
+        }
+    }
+}
+
+.panel__wrapper {
+    @extend %zi-2;
+    height: 100%;
+    background: #fff;
+}
+
+.panel__bg {
+    position: absolute;
+    z-index: 1;
+    
+    @include media-breakpoint-up(lg) {
+        @include wh(225px,225px);
+        right: (100%/7);
+        bottom: 8px;
+    }
+    
+    @include media-breakpoint-down(md) {
+        @include wh(200px,200px);
+        right: 16px;
+        bottom: -40px;
+    }
+}
+
+.panel__header {
+    @extend %zi-2;
+    @extend %flex-center;
+
+    @include media-breakpoint-up(md) {
+        @include px(100%/7);
+        @include py(80px,40px);
+    }
+
+    @include media-breakpoint-down(sm) {
+        padding: 40px 16px 40px 32px;
+    }
+}
+
+.panel__btn {
+    @extend %btn-default;
+    @include fw(40px);
+    @include wh(40px,40px);
+    @include offset(0 16px 0 0,4px);
+    background: #fff;
+    border-radius: 1px;
+    border: 1px solid $color__title;
+
+    &.panel__btn_close {
+        margin: 0;
+    }
+
+    &.panel__btn_cart {
+        @extend %flex-center;
+        @include font(18px,700);
+        flex: 0 0 auto;
+        width: auto;
+        max-width: initial;
+        padding: 8px 10px;
+        line-height: 22px;
+        letter-spacing: .05em;
+
+        .icon-fluid {
+            @include fw(32px);
+            @include wh(32px,18px);
+            @include offset(0 0 0 10px,0 0 0 10px);
+            @include border(0 0 0 1px,$color__border);
+        }
+    }
+}
+
+.panel__title {
+    @extend %title-default;
+    @include fs-lh(24px,30px);
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+
+    @include media-breakpoint-up(md) {
+        margin: 0 16px 0 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+        margin: 0 8px 0 0;
+    }
+}
+
+.panel__body {
+    @extend %zi-2;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+
+    @include media-breakpoint-up(md) {
+        @include px(100%/7,100%/7*2);
+        @include py(120px,40px);
+        @include pos(160px,0);
+    }
+
+    @include media-breakpoint-down(sm) {
+        @include pos(120px,0);
+        padding: 40px 32px;
+    }
+
+    &.panel__body_row {
+        @extend %d-flex;
+        justify-content: space-between;
+    }
+}
+
+.panel__col {
+    &.panel__col_lg {
+        @include media-breakpoint-up(lg) {
+            @include fw(100%/8*4);
+        }
+
+        @include media-breakpoint-down(md) {
+            @include fw(100%);
+        }
+    }
+
+    &.panel__col_sm {
+        @include media-breakpoint-up(lg) {
+            @include fw(100%/8*3);
+        }
+
+        @include media-breakpoint-down(md) {
+            @include fw(100%);
+        }
+    }
+}
+
+.panel__toggler {
+    @extend %btn-default;
+    @extend %text-default;
+    font-size: 14px;
+    display: block;
+    margin: 0 0 24px;
+    text-decoration-line: underline;
+}

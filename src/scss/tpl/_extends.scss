@@ -1,0 +1,108 @@
+%wrapper {
+    @include px(16px);
+    @include mx(auto);
+    max-width: 1312px;
+    min-width: 320px;
+}
+
+%d-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+%flex-center {
+    display: flex;
+    align-items: center;
+}
+
+%flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+%btn-default {
+    @include inline-block;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+
+    .zi-2 {
+        pointer-events: none;
+    }
+
+    .icon-fluid {
+        pointer-events: none;
+    }
+}
+
+%border-default {
+    border-radius: 1px;
+    border: 1px solid $color__title;
+}
+
+%link-default {
+    text-decoration: none;
+    color: $color__link;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: $color__link;
+    }
+}
+
+%title-default {
+    @include font(36px,700);
+    font-family: $font-family_title;
+    color: $color__title;
+    letter-spacing: 0.05em;
+    line-height: 46px;
+}
+
+%text-default {
+    @include font($font-size_default,300);
+    font-family: $font-family_content;
+    line-height: 22px;
+}
+
+%text-content {
+    font-family: $font-family_content;
+}
+
+%color-default {
+    color: $color__default;
+
+    &:hover,
+    &:focus {
+        color: $color__default;
+    }
+}
+
+%color-brand {
+    color: $color__brand;
+
+    &:hover,
+    &:focus {
+        color: $color__brand;
+    }
+}
+
+%zi-1 {
+    z-index: 1;
+    position: relative;
+}
+
+%zi-2 {
+    z-index: 2;
+    position: relative;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.visible {
+    visibility: visible !important;
+}

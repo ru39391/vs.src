@@ -1,0 +1,33 @@
+.search {
+    padding: 0 40px 0 0;
+    position: relative;
+    border-radius: 1px;
+    border: 1px solid $color__border;
+
+    @include media-breakpoint-only(xs) {
+        margin: 0 0 32px;
+    }
+}
+
+.search__field {
+    @include font(16px,300);
+    line-height: 22px;
+    width: 100%;
+    border: 0;
+    color: #0F0E0E;
+    padding: 4px 18px 6px;
+    background: rgba(0,0,0,0);
+    font-family: $font-family_content;
+}
+
+.search__btn {
+    @extend %btn-default;
+    @include border(0 0 0 1px,$color__border);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 32px;
+    padding: 4px;
+    line-height: 10px;
+}

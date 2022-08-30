@@ -1,0 +1,34 @@
+.pagination {
+    @extend %d-flex;
+    @extend %flex-center;
+    justify-content: center;
+    margin: 0 0 32px;
+}
+
+.pagination__control {
+    @include fw(76px);
+    @include wh(76px,20px)
+    margin: 0 16px 8px 0;
+
+    &.pagination__control_prev {
+        transform: rotateY(180deg);
+    }
+
+    &.pagination__control_next {
+        margin-right: 0;
+    }
+}
+
+.pagination__item {
+    @extend .btn;
+    width: auto;
+    max-width: initial;
+    flex: 0 0 auto;
+    margin: 0 16px 8px 0;
+
+    &.pagination__item_current {
+        color: #fff;
+        border-color: #8c8c8c;
+        background: #8c8c8c;
+    }   
+}

@@ -1,0 +1,211 @@
+.pos {
+    @extend %flex-column;
+    height: 100%;
+    justify-content: space-between;
+
+    &.pos_block {
+        display: block;
+    }
+
+    &.pos_row {
+        height: auto;
+        margin: 0 0 8px;
+        position: relative;
+        flex-direction: row;
+        border: 1px solid $color__border;
+
+        .pos__close {
+            position: absolute;
+            top: -1px;
+            right: -1px;
+        }
+
+        .pos__picture {
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        .pos__wrapper {
+            @extend %flex-column;
+            flex-grow: 1;
+            justify-content: space-between;
+            padding: 8px;
+        }
+
+        .pos__title {
+            padding: 0 24px 0 0;
+        }
+
+        .pos__price {
+            margin-bottom: 0;
+
+            @include media-breakpoint-only(xs) {
+                @include fs-lh(14px,22px);
+            }
+            
+            .font-weight-bold {
+                @include media-breakpoint-only(xs) {
+                    @include fs-lh(14px,22px);
+                }
+            }
+        }
+    }
+
+    &.pos_sm {
+        @include offset(0 0 10px,0 0 10px);
+        @include border(0 0 1px,$color__border);
+        flex-direction: row;
+
+        .pos__wrapper {
+            @extend %d-flex;
+            flex-grow: 1;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 0 16px 0 0;
+        }
+
+        .pos__title {
+            margin-right: 8px;
+        }
+
+        .pos__price {
+            //margin-right: 8px;
+            margin-bottom: 0;
+
+            @include media-breakpoint-only(xs) {
+                @include fs-lh(14px,22px);
+            }
+            
+            .font-weight-bold {
+                @include media-breakpoint-only(xs) {
+                    @include fs-lh(14px,22px);
+                }
+            }
+        }
+    }
+}
+
+.pos__close {
+    @extend %btn-default;
+    @include fw(24px);
+    @include wh(24px,24px);
+    padding: 2px;
+    border-radius: 1px;
+    border: 1px solid $color__border;
+}
+
+.pos__picture {
+    display: block;
+    margin: 0 0 10px;
+    overflow: hidden;
+    border-radius: 16px 0px;
+
+    &.pos__picture_mb {
+        margin: 0 0 20px;
+    }
+
+    &.pos__picture_col {
+        @include fw(94px);
+    }
+}
+
+.pos__title {
+    @include font(24px,700);
+    line-height: 30px;
+    letter-spacing: 0.05em;
+    font-family: $font-family_title;
+    display: block;
+    margin: 0 0 5px;
+    text-transform: uppercase;
+
+    &.pos__title_normal {
+        @include fs-lh(18px,22px);
+        margin-bottom: 0;
+        text-transform: none;
+    }
+
+    &.pos__title_sm {
+        @extend .pos__title.pos__title_normal;
+        letter-spacing: 0.05em;
+    }
+
+    &.pos__title_col {
+        @include fw(100%/12*4);
+    }
+}
+
+.pos_desc {
+    @include fs-lh(14px,20px);
+    font-family: $font-family_content;
+}
+
+.pos__bottom {
+    @extend %flex-column;
+    justify-content: space-between;
+
+    @include media-breakpoint-up(sm) {
+        height: 155px;
+    }
+
+    @include media-breakpoint-only(xs) {
+        height: 172px;
+    }
+}
+
+.pos__price {
+    @extend %flex-center;
+    @include font(16px,300);
+    line-height: 22px;
+    font-family: $font-family_content;
+    margin: 0 0 8px;
+
+    .font-weight-bold {
+        @include fs-lh(18px,22px);
+        letter-spacing: 0.05em;
+        font-family: $font-family_title;
+        margin: 0 4px 0 8px;
+    }
+}
+
+.pos__info {
+    @include font(14px,300);
+    font-family: $font-family_content;
+}
+
+.pos__footer {
+    &.pos__footer_row {
+        @extend %flex-center;
+        justify-content: space-between;
+    }
+}
+
+.pos__readmore {
+    @extend %flex-center;
+    @include font(16px,700);
+    line-height: 22px;
+    letter-spacing: 0.05em;
+    font-family: $font-family_title;
+    text-transform: uppercase;
+
+    @include media-breakpoint-up(sm) {
+        margin: 0 0 26px;
+    }
+
+    @include media-breakpoint-only(xs) {
+        margin: 0 0 8px;
+    }
+
+    .icon-fluid {
+        @include media-breakpoint-up(sm) {
+            @include fw(76px);
+            @include wh(76px,20px);
+            margin: 0 0 0 20px;
+        }
+    
+        @include media-breakpoint-only(xs) {
+            @include fw(48px);
+            @include wh(48px,20px);
+            margin: 0 0 0 10px;
+        }
+    }
+}

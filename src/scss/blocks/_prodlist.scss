@@ -1,0 +1,85 @@
+.prodlist {
+    &.prodlist_desc {
+        margin: 0 0 28px;
+
+        .prodlist__title-value {
+            background: #fff;
+        }
+
+        .prodlist__value {
+            background: #fff;
+        }
+    }
+
+    &.prodlist_normal {
+        .prodlist__title {
+            @include font(14px,400);
+            line-height: 20px;
+        }
+
+        .prodlist__value {
+            @include font(14px,300);
+            line-height: 20px;
+            font-family: $font-family_content;
+        }
+    }
+}
+
+.prodlist__item {
+    @extend %flex-center;
+    @include before;
+    line-height: 20px;
+    margin: 0 0 16px;
+
+    &:before {
+        @extend %zi-1;
+        @include pos(50%,0);
+        right: 0;
+        height: 1px;
+        background: $color__border;
+    }
+}
+
+.prodlist__title {
+    @extend %zi-2;
+    @include font(14px,300);
+    line-height: 20px;
+    font-family: $font-family_content;
+
+    @include media-breakpoint-up(sm) {
+        @include fw(100%/12*6);
+    }
+
+    @include media-breakpoint-only(xs) {
+        @include fw(100%/12*7);
+    }
+}
+
+.prodlist__title-value {
+    @include inline-block;
+    padding: 0 8px 0 0;
+    background: $color__bg;
+}
+
+.prodlist__value {
+    @extend %zi-2;
+    @include font(18px,700);
+    letter-spacing: 0.05em;
+    padding: 0 0 0 8px;
+    background: $color__bg;
+
+    @include media-breakpoint-up(sm) {
+        @include fw(100%/12*6);
+    }
+
+    @include media-breakpoint-only(xs) {
+        @include fw(100%/12*5);
+    }
+
+    &.prodlist__value_normal {
+        @include font(14px,400);
+        line-height: 20px;
+        letter-spacing: 0;
+        font-family: $font-family_content;
+    }
+}

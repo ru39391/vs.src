@@ -1,0 +1,60 @@
+extends base.pug
+
+block meta
+  - var title = 'Капуста кейл';
+
+block wrapper
+  .wrapper.wrapper_container
+    .section.section_flex.section_nomb.section_pt
+      .section__title.section__title_ml #{title}
+      .section__col.section__col_lg.section__col_offset.section__col_mb
+        img.img-fluid.border-radius(src="../img/content/box.png" alt="")
+      .section__col.section__col_mb
+        .desc
+          form.desc__header
+            .prodlist.prodlist_desc
+              .prodlist__item
+                .prodlist__title
+                  span.prodlist__title-value Цена
+                .prodlist__value 599 руб.
+              .prodlist__item
+                .prodlist__title
+                  span.prodlist__title-value Фасовка
+                .prodlist__value.prodlist__value_normal пучок (100гр.)
+            button.btn.btn_md(type="submit" name="ms2_action" value="cart/add") Добавить в корзину
+          .content.content_minmb
+            p Капусту любых видов круглый год можно приобрести в супермаркетах даже малонаселенных городов. На многих прилавках присутствует также капуста кейл, которая отличается внешним видом от ранее всегда доступной белокочанной. Схожа внешне с салатом, но имеет более плотные и жесткие листы, которые позволяют быстро достичь чувства сытости. Польза и вред капусты кейл помогут определиться с необходимостью вводить этот сорт в ежедневный рацион.
+          .desc__footer
+            a.readmore(href="#")
+              | Узнать больше
+              svg.readmore__icon
+                use(xlink:href="#icon-next")
+
+    .divider
+      .divider__icon
+        svg.icon-fluid
+          use(xlink:href="#icon-sprouts")
+
+    .section.section_nomb.text-center
+      .section__subtitle.section__subtitle_minmb рецепты с этим продуктом:
+    .section.section_container.section_grid.section_grid4x
+      .section__col
+        .pos
+          a.pos__picture.pos__picture_mb(href="#")
+            img.img-fluid(src="../img/content/recipes/recipe-1.jpg" alt="")
+          a.pos__title.pos__title_normal(href="#") Суп с кейлом и чесночными гренками
+      .section__col
+        .pos
+          a.pos__picture.pos__picture_mb(href="#")
+            img.img-fluid(src="../img/content/recipes/recipe-1.jpg" alt="")
+          a.pos__title.pos__title_normal(href="#") Суп с кейлом и чесночными гренками
+      .section__col
+        .pos
+          a.pos__picture.pos__picture_mb(href="#")
+            img.img-fluid(src="../img/content/recipes/recipe-1.jpg" alt="")
+          a.pos__title.pos__title_normal(href="#") Суп с кейлом и чесночными гренками
+      .section__col
+        .pos
+          a.pos__picture.pos__picture_mb(href="#")
+            img.img-fluid(src="../img/content/recipes/recipe-1.jpg" alt="")
+          a.pos__title.pos__title_normal(href="#") Суп с кейлом и чесночными гренками
