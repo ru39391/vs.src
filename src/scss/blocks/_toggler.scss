@@ -1,0 +1,26 @@
+.toggler {
+    &.toggler_type_radio {
+        @include pos(0,0);
+        @include wh(0,0);
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    &:checked {
+        & + .toggler-title_bg_fill {
+            background: #C4C4C4;
+        }
+    }
+}
+
+.toggler-title {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    margin-bottom: 0;
+
+    &.toggler-title_bg_fill {
+        padding: 4px 18px 6px;
+    }
+}

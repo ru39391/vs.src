@@ -100,12 +100,12 @@ button {
 }
 
 .icon-fluid {
-    @include size(100%,100%);
+    @include wh(100%,100%);
     pointer-events: none;
 }
 
 .icon-prev {
-    @include size(18px,18px);
+    @include wh(18px,18px);
 }
 
 .list-icon {
@@ -124,7 +124,7 @@ button {
 
 .close {
     @include inline-block;
-    @include size(32px,32px);
+    @include wh(32px,32px);
     padding: 0;
     position: absolute;
     top: 16px;

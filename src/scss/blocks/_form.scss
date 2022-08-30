@@ -58,6 +58,14 @@
     &.form__item_minmb {
         margin: 0 0 28px;
     }
+
+    &.form__item_invisible {
+        display: none;
+    }
+
+    &.required {
+        display: block;
+    }
 }
 
 .form__field {

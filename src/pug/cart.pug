@@ -9,7 +9,7 @@ block wrapper
     .section.section_pt.section_nomb
       .section__title.text-center Оформление заказа
     form.cart
-      .cart__container.justify-content-start
+      //- .cart__container.justify-content-start
         .cart__col
           .content.mb-0
             p С 2016 года мы привозим овощи и зелень с нашей органической фермы по абонементу. Абонемент — это большой пакет свежих овощей раз в неделю. Ассортимент овощей мы заботливо собираем для вас сами.
@@ -18,6 +18,29 @@ block wrapper
         .cart__col.cart__col_offset
           .cart__title данные пользователя
           .form
+            .form__item
+              .category
+                button.category__placeholder(type="button")
+                  span.category__title Выбрать
+                  span.category__toggler.border-0
+                    svg.icon-fluid
+                      use(xlink:href="#icon-arrow-down")
+                .category__list
+                  .category__item.p-0
+                    input.toggler.toggler_type_radio(type="radio" name="delivery" id="delivery_1")
+                    label.toggler-title.toggler-title_bg_fill(for="delivery_1") Ростов-на-Дону, Ворошиловский, 101 Магазин «Ecofirmica»
+                  .category__item.p-0
+                    input.toggler.toggler_type_radio(type="radio" name="delivery" id="delivery_2")
+                    label.toggler-title.toggler-title_bg_fill(for="delivery_2") Ростов-на-Дону, Пушкинская, 163 Магазин «Ecofirmica»
+                  .category__item.p-0
+                    input.toggler.toggler_type_radio(type="radio" name="delivery" id="delivery_3")
+                    label.toggler-title.toggler-title_bg_fill(for="delivery_3") Ростов-на-Дону, Горького, 124 Магазин «Ecofirmica»
+                  .category__item.p-0
+                    input.toggler.toggler_type_radio(type="radio" name="delivery" id="delivery_4")
+                    label.toggler-title.toggler-title_bg_fill(for="delivery_4") Ростов-на-Дону, Кировский, 44 Магазин «Экостория»
+                  .category__item.p-0
+                    input.toggler.toggler_type_radio(type="radio" name="delivery" id="delivery_5")
+                    label.toggler-title.toggler-title_bg_fill(for="delivery_5") Ростов-на-Дону, Суворова, 19 Магазин «Веганшоп»
             .form__item
               input.form__field.form__field_bg(type="text" placeholder="Имя")
             .form__item

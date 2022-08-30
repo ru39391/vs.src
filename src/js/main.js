@@ -17,6 +17,13 @@ const jumbotronGallery = new Swiper('.jumbotron__slides', {
 	}
 });
 
+function setCaption(toggler, targetSel, className) {
+    const target = document.querySelector(targetSel);
+    if(toggler.classList.contains(className)) {
+        target.textContent = toggler.textContent;
+    }
+}
+
 document.body.addEventListener('click', (e) => {
     switch(e.target == document.querySelector('.header__toggler_nav')) {
         case true:
@@ -54,13 +61,15 @@ document.body.addEventListener('click', (e) => {
 
     switch(e.target.classList.contains('category__placeholder')) {
         case true:
-        e.target.closest('.category').classList.toggle('active');
-        break;
+            e.target.closest('.category').classList.toggle('active');
+            break;
 
         case false:
-        if(document.querySelector('.category')) {
-            document.querySelector('.category').classList.remove('active');
-        }
+            //console.log(e.target, e.target.textContent);
+            setCaption(e.target, '.category__title', 'toggler-title');
+            if(document.querySelector('.category')) {
+                document.querySelector('.category').classList.remove('active');
+            }
         break;
     }
     //console.log(e.target);

@@ -7,9 +7,12 @@
 
 @import '~bootstrap/scss/utilities/flex';
 @import '~bootstrap/scss/utilities/text';
+@import '~bootstrap/scss/utilities/display';
+@import '~bootstrap/scss/utilities/borders';
 @import '~bootstrap/scss/utilities/spacing';
 @import '~bootstrap/scss/images';
 @import '~bootstrap/scss/modal';
+@import '~bootstrap/scss/grid';
 
 @import 'blocks/header';
 @import 'blocks/nav';
@@ -38,6 +41,7 @@
 @import 'blocks/social';
 @import 'blocks/swiper';
 @import 'blocks/wrapper';
+@import 'blocks/toggler';
 @import 'blocks/selecter';
 @import 'blocks/promocode';
 @import 'blocks/pagination';

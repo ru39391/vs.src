@@ -12,6 +12,10 @@
     }
 
     &.active {
+        .category__title {
+            color: $color__default;
+        }
+
         .category__toggler {
             transform: rotateX(180deg);
         }
@@ -36,6 +40,11 @@
     border-radius: 1px;
     border: 1px solid $color__border;
     font-family: $font-family_content;
+}
+
+.category__title {
+    color: #8c8c8c;
+    pointer-events: none;
 }
 
 .category__toggler {
