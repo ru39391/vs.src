@@ -79,25 +79,3 @@
         @extend .category__item.active;
     }
 }
-
-.selecter {
-    position: relative;
-
-    &.selecter {
-        z-index: 2;
-    }
-}
-
-.selecter__placeholder {
-
-}
-
-.selecter__options {
-    
-}
-
-.selecter__toggler {
-    &.selecter__toggler_type_radio {
-        
-    }
-}
