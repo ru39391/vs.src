@@ -3,7 +3,7 @@
 
     &.cart_column {
         margin-bottom: 30px;
-        
+
         @include media-breakpoint-up(lg) {
             height: 100%;
             display: flex;

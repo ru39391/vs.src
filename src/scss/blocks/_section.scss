@@ -231,7 +231,7 @@
                 @include media-breakpoint-up(lg) {
                     @include fw(100%/12*5);
                 }
-        
+
                 @include media-breakpoint-down(md) {
                     @include fw(100%);
                 }
@@ -316,12 +316,12 @@
         @include media-breakpoint-up(lg) {
             margin-bottom: 42px;
         }
-    
+
         @include media-breakpoint-down(md) {
             margin-bottom: 18px;
         }
 
-        & + .section__col_mb {    
+        & + .section__col_mb {
             @include media-breakpoint-down(md) {
                 margin-bottom: 38px;
             }
@@ -344,7 +344,7 @@
         margin: 0;
     }
 }
-	
+
 .section__tab {
     display: none;
 

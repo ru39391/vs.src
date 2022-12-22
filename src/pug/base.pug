@@ -64,7 +64,7 @@ html(lang="ru")
                 svg.nav__icon
                   use(xlink:href="#icon-next")
         .header__col.header__col_cart
-          button.header__toggler.header__toggler_profile(type="button" data-toggle="panel" data-target="#office-auth-login")
+          button.header__toggler.header__toggler_profile.panel-toggler(type="button" data-toggle="panel" data-target="#office-auth-login")
             svg.icon-fluid
               use(xlink:href="#icon-profile")
           //- button.header__toggler.header__toggler_cart(type="button")
@@ -92,11 +92,11 @@ html(lang="ru")
             p.simplesearch-results 2 результатов найдено для "
               span.result__highlighted суп
               | "
-            .simplesearch-paging  Страницы с результатами поиска:1 
+            .simplesearch-paging  Страницы с результатами поиска:1
             .simplesearch-results-list
               .result
                 a.result__title(href="#") 1. Статья о товаре 05
-                .result__desc Капусту любых видов круглый год можно приобрести в 
+                .result__desc Капусту любых видов круглый год можно приобрести в
                   span.result__highlighted суп
                   | ермаркетах даже малонаселенных городов. На многих прилавках присутствует также капуста кейл, которая отличается внешним видом от ранее всегда доступной...
                 a.readmore(href="#")
@@ -105,7 +105,7 @@ html(lang="ru")
                     use(xlink:href="#icon-next")
               .result
                 a.result__title(href="#") 1. Статья о товаре 05
-                .result__desc Капусту любых видов круглый год можно приобрести в 
+                .result__desc Капусту любых видов круглый год можно приобрести в
                   span.result__highlighted суп
                   | ермаркетах даже малонаселенных городов. На многих прилавках присутствует также капуста кейл, которая отличается внешним видом от ранее всегда доступной...
                 a.readmore(href="#")
@@ -114,14 +114,14 @@ html(lang="ru")
                     use(xlink:href="#icon-next")
               .result
                 a.result__title(href="#") 1. Статья о товаре 05
-                .result__desc Капусту любых видов круглый год можно приобрести в 
+                .result__desc Капусту любых видов круглый год можно приобрести в
                   span.result__highlighted суп
                   | ермаркетах даже малонаселенных городов. На многих прилавках присутствует также капуста кейл, которая отличается внешним видом от ранее всегда доступной...
                 a.readmore(href="#")
                   | Читать далее
                   svg.readmore__icon
                     use(xlink:href="#icon-next")
-      #cart.panel.panel_lg.active
+      #cart.panel.panel_lg
         .panel__wrapper
           .panel__header
               button.panel__btn.panel__btn_cart(type="button")
@@ -209,7 +209,7 @@ html(lang="ru")
                               svg.icon-fluid
                                 use(xlink:href="#icon-minus")
                             .recalculate__wrapper
-                              span.recalculate__value 1 
+                              span.recalculate__value 1
                               | шт
                             button.recalculate__btn.recalculate__btn_add(type="button")
                               svg.icon-fluid
@@ -236,7 +236,7 @@ html(lang="ru")
                       svg.readmore__icon
                         use(xlink:href="#icon-next")
 
-      #reg.panel
+      #office-auth-register.panel.panel_auth_register
         .panel__wrapper
           .panel__bg
             svg.icon-fluid
@@ -263,13 +263,13 @@ html(lang="ru")
                   span.form__toggler.form__toggler_visible.form__toggler_lg
                     svg.icon-fluid
                       use(xlink:href="#icon-star-filled")
-                  span Я даю согласие на обработку персональных данных и соглашаюсь с 
+                  span Я даю согласие на обработку персональных данных и соглашаюсь с
                     a.text-underline(href="#") политикой конфеденциальности
               .form__footer
                 button.btn.btn_light(type="submit") зарегистрироваться
-            button.panel__toggler(type="button" data-toggle="panel" data-target="#auth") Войти
+            button.panel__toggler.panel-toggler(type="button" data-toggle="panel" data-target="#office-auth-login") Войти
 
-      #office-auth-login.panel
+      #office-auth-login.panel.panel_auth_login
         .panel__wrapper
           .panel__bg
             svg.icon-fluid
@@ -290,10 +290,10 @@ html(lang="ru")
                 input#office-login-form-password.form__field(type="password" placeholder="Пароль" required)
               .form__footer
                 button.btn(type="submit") Войти
-            button.panel__toggler(type="button" data-toggle="panel" data-target="#office-auth-recovery") Забыли пароль?
-            button.panel__toggler(type="button" data-toggle="panel" data-target="#office-auth-register") Зарегистрироваться
+            button.panel__toggler.panel-toggler(type="button" data-toggle="panel" data-target="#office-auth-recovery") Забыли пароль?
+            button.panel__toggler.panel-toggler(type="button" data-toggle="panel" data-target="#office-auth-register") Зарегистрироваться
 
-      #office-auth-recovery.panel
+      #office-auth-recovery.panel.panel_auth_recovery
         .panel__wrapper
           .panel__bg
             svg.icon-fluid
@@ -312,8 +312,8 @@ html(lang="ru")
                 input#office-auth-recovery-username.form__field.input-email(type="text" placeholder="Почта" required)
               .form__footer
                 button#office-auth-recovery-submit.btn(type="button") Восстановить
-            button.panel__toggler(type="button" data-toggle="panel" data-target="#office-auth-login") Войти
-            button.panel__toggler(type="button" data-toggle="panel" data-target="#office-auth-register") Зарегистрироваться
+            button.panel__toggler.panel-toggler(type="button" data-toggle="panel" data-target="#office-auth-login") Войти
+            button.panel__toggler.panel-toggler(type="button" data-toggle="panel" data-target="#office-auth-register") Зарегистрироваться
 
     footer.footer
       .wrapper
@@ -358,7 +358,6 @@ html(lang="ru")
     link(rel="preconnect" href="https://fonts.gstatic.com")
     link(href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Ruda:wght@400;700&display=swap" rel="stylesheet")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js")
-    script(src="https://unpkg.com/swiper@5.4.1/js/swiper.min.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/core.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/dropdown.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/touch.js")

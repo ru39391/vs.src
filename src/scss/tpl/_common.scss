@@ -82,7 +82,7 @@ button {
         @include media-breakpoint-up(sm) {
             max-width: 135px;
         }
-    
+
         @include media-breakpoint-only(xs) {
             max-width: 100px;
         }
@@ -190,7 +190,7 @@ button {
         .tab-toggler_show {
             display: none;
         }
-        
+
         .tab-toggler_hide {
             display: inherit;
         }
