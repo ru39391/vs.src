@@ -1,88 +1,90 @@
 .category {
-    @extend %zi-2;
-    @include inline-block;
-    text-align: left;
+  @extend %zi-2;
+  @include inline-block;
+  text-align: left;
 
-    @include media-breakpoint-up(sm) {
-        width: 422px;
+  @include media-breakpoint-up(sm) {
+    width: 422px;
+  }
+
+  @include media-breakpoint-only(xs) {
+    width: 100%;
+  }
+
+  &.active {
+    z-index: 3;
+
+    .category__title {
+      color: $color__default;
     }
 
-    @include media-breakpoint-only(xs) {
-        width: 100%;
+    .category__toggler {
+      transform: rotateX(180deg);
     }
 
-    &.active {
-        .category__title {
-            color: $color__default;
-        }
-
-        .category__toggler {
-            transform: rotateX(180deg);
-        }
-
-        .category__list {
-            display: block;
-        }
+    .category__list {
+      display: block;
     }
+  }
 }
 
 .category__placeholder {
-    @extend %btn-default;
-    @include font(16px,300);
-    line-height: 22px;
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    padding: 4px 40px 6px 18px;
-    color: #0F0E0E;
-    text-align: left;
-    border-radius: 1px;
-    border: 1px solid $color__border;
-    font-family: $font-family_content;
+  @extend %btn-default;
+  @include font(16px, 300);
+  line-height: 22px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 4px 40px 6px 18px;
+  color: #0F0E0E;
+  text-align: left;
+  border-radius: 1px;
+  border: 1px solid $color__border;
+  font-family: $font-family_content;
 }
 
 .category__title {
-    color: #8c8c8c;
-    pointer-events: none;
+  color: #8c8c8c;
+  pointer-events: none;
 }
 
 .category__toggler {
-    @include border(0 0 0 1px,$color__border);
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 32px;
-    padding: 4px;
-    line-height: 10px;
-    pointer-events: none;
+  @include border(0 0 0 1px, $color__border);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 32px;
+  padding: 4px;
+  line-height: 10px;
+  pointer-events: none;
 }
 
 .category__list {
-    @include border(0 1px 1px,$color__border);
-    position: absolute;
-    left: 0;
-    right: 0;
-    background: $color__bg;
-    display: none;
+  @include border(0 1px 1px, $color__border);
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: $color__bg;
+  display: none;
 }
 
 .category__item {
-    @include border(0 0 1px,$color__border);
-    @include font(16px,300);
-    line-height: 22px;
-    color: #0F0E0E;
-    display: block;
-    padding: 4px 18px 6px;
-    font-family: $font-family_content;
+  @include border(0 0 1px, $color__border);
+  @include font(16px, 300);
+  line-height: 22px;
+  color: #0F0E0E;
+  display: block;
+  padding: 4px 18px 6px;
+  font-family: $font-family_content;
 
-    &:hover,
-    &.active {
-        background: #C4C4C4;
-    }
+  &:hover,
+  &.active {
+    background: #C4C4C4;
+  }
 
-    &:last-child {
-        border: 0;
-    }
+  &:last-child {
+    border: 0;
+  }
 }

@@ -1,14 +1,14 @@
 import {Selecter} from '../components/Selecter';
 
-const formSelectsArr = Array.from(document.querySelectorAll('.form__select'));
+const formSelectsArr = Array.from(document.querySelectorAll('.form__select_single'));
 const formSelectConfig = {
   selecterTplSel: '.selecter-template',
-  selecterWrapperSel: '.selecter',
-  selecterTogglerSel: '.selecter__placeholder',
-  selecterTitleSel: '.selecter__title',
-  selecterListClass: 'selecter__list',
-  selecterOptionClass: 'selecter__option',
-  selecterClassAvtive: 'selecter_active'
+  selecterWrapperSel: '.category',
+  selecterTogglerSel: '.category__placeholder',
+  selecterTitleSel: '.category__title',
+  selecterListClass: 'category__list',
+  selecterOptionClass: 'category__item',
+  selecterClassAvtive: 'active'
 };
 formSelectsArr.forEach(formSelectsArrEl => {
   const selecter = new Selecter(formSelectsArrEl, formSelectConfig);

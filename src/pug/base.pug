@@ -1,3 +1,5 @@
+include libs/mixins
+
 block meta
   - var title = 'Текстовая страница';
   - var intro = '';
@@ -354,6 +356,13 @@ html(lang="ru")
             a.footer__link(href="#") Политика конфиденциальности
             a.footer__link(href="#") Правила покупки
           .footer__copyright Все права защищены &copy; 2021 год
+
+    template.selecter-template
+      .category
+        button.category__placeholder(type="button")
+          span.category__title
+          span.category__toggler.border-0
+            +icon('arrow-down')
 
     link(rel="preconnect" href="https://fonts.gstatic.com")
     link(href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Ruda:wght@400;700&display=swap" rel="stylesheet")

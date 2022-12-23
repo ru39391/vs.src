@@ -55,7 +55,7 @@ block wrapper
                 span.form__toggler.form__toggler_visible
                   svg.icon-fluid
                     use(xlink:href="#icon-star-filled")
-                span Я даю согласие на обработку персональных данных и соглашаюсь с 
+                span Я даю согласие на обработку персональных данных и соглашаюсь с
                   a.text-underline(href="#") политикой конфеденциальности
         .cart__col
           .cart__title данные покупки
@@ -91,8 +91,8 @@ block wrapper
                   svg.icon-fluid
                     use(xlink:href="#icon-close")
               .mspc2-discount-amount
-                | Скидка в корзине: 
-                span.font-weight-bold 0 
+                | Скидка в корзине:
+                span.font-weight-bold 0
                 | руб.
               .mspc2-description
               .mspc2-message
@@ -102,12 +102,14 @@ block wrapper
             .form__item.form__item_minmb
               label.form__label.form__label_md Вид абонемента:
               select.form__select.form__select_single
+                option(disabled) Выбрать
                 option Тип 1
                 option Тип 2
                 option Тип 3
             .form__item.form__item_minmb
               label.form__label.form__label_md Адрес доставки:
               select.form__select.form__select_single
+                option(disabled) Выбрать
                 option Адрес 1
                 option Адрес 2
                 option Адрес 3

@@ -6,7 +6,7 @@ import './app/panel';
 import './app/forms';
 import './app/header';
 import './app/dropdown';
-//import './app/selecter';
+import './app/selecter';
 
 /* tabs */
 let sectionTabArr = [];
@@ -50,11 +50,6 @@ document.querySelectorAll('.form__toggler[name="size"]').forEach(sizeToggler => 
         }
     })
 });
-
-/* selecter
-if(document.querySelector('.form__select_single')) {
-    $('.form__select_single').dropdown({label: 'Выбрать'});
-} */
 
 /* auth */
 if(document.querySelector('#office-auth-recovery-username')) {
