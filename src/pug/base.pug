@@ -238,7 +238,7 @@ html(lang="ru")
                       svg.readmore__icon
                         use(xlink:href="#icon-next")
 
-      #office-auth-register.panel.panel_auth_register
+      #office-auth-register.panel
         .panel__wrapper
           .panel__bg
             svg.icon-fluid
@@ -252,13 +252,13 @@ html(lang="ru")
                 svg.icon-fluid
                   use(xlink:href="#icon-close")
           .panel__body
-            form.form.form_mb(action="#" method="post")
+            form.form.form_mb(action="#" method="post" name="registerForm")
               .form__item
-                input.form__field(type="text" placeholder="Имя")
+                input.form__field(type="text" placeholder="Имя" name="fullname")
               .form__item
-                input.form__field(type="text" placeholder="Почта")
+                input.form__field.input-email(type="text" placeholder="Почта" name="email")
               .form__item
-                input.form__field(type="text" placeholder="Телефон")
+                input.form__field.input-phone(type="text" placeholder="Телефон" name="mobilephone")
               .form__item.form__item_mb
                 input.form__toggler(type="checkbox" id="reg__form_private" checked)
                 label.form__label(for="reg__form_private")
@@ -271,7 +271,7 @@ html(lang="ru")
                 button.btn.btn_light(type="submit") зарегистрироваться
             button.panel__toggler.panel-toggler(type="button" data-toggle="panel" data-target="#office-auth-login") Войти
 
-      #office-auth-login.panel.panel_auth_login
+      #office-auth-login.panel
         .panel__wrapper
           .panel__bg
             svg.icon-fluid
@@ -285,17 +285,17 @@ html(lang="ru")
                 svg.icon-fluid
                   use(xlink:href="#icon-close")
           .panel__body
-            form.form.form_mb(action="#" method="post")
+            form.form.form_mb(action="https://ya.ru" method="post" name="loginForm")
               .form__item
-                input#office-auth-login-username.form__field.input-email(type="text" placeholder="Логин")
+                input#office-auth-login-username.form__field.input-email(type="text" placeholder="Логин" name="username")
               .form__item.form__item_mb
-                input#office-login-form-password.form__field(type="password" placeholder="Пароль" required)
+                input#office-login-form-password.form__field(type="password" placeholder="Пароль" name="password" required)
               .form__footer
                 button.btn(type="submit") Войти
             button.panel__toggler.panel-toggler(type="button" data-toggle="panel" data-target="#office-auth-recovery") Забыли пароль?
             button.panel__toggler.panel-toggler(type="button" data-toggle="panel" data-target="#office-auth-register") Зарегистрироваться
 
-      #office-auth-recovery.panel.panel_auth_recovery
+      #office-auth-recovery.panel
         .panel__wrapper
           .panel__bg
             svg.icon-fluid
@@ -309,11 +309,11 @@ html(lang="ru")
                 svg.icon-fluid
                   use(xlink:href="#icon-close")
           .panel__body
-            form.form.form_mb(method="post")
+            form.form.form_mb(method="post" name="recoveryForm")
               .form__item.form__item_mb
-                input#office-auth-recovery-username.form__field.input-email(type="text" placeholder="Почта" required)
+                input#office-auth-recovery-username.form__field.input-email(type="text" placeholder="Почта" name="username" required)
               .form__footer
-                button#office-auth-recovery-submit.btn(type="button") Восстановить
+                button#office-auth-recovery-submit.btn(type="submit") Восстановить
             button.panel__toggler.panel-toggler(type="button" data-toggle="panel" data-target="#office-auth-login") Войти
             button.panel__toggler.panel-toggler(type="button" data-toggle="panel" data-target="#office-auth-register") Зарегистрироваться
 
@@ -367,6 +367,3 @@ html(lang="ru")
     link(rel="preconnect" href="https://fonts.gstatic.com")
     link(href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Ruda:wght@400;700&display=swap" rel="stylesheet")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/core.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/dropdown.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/formstone/1.4.20/js/touch.js")

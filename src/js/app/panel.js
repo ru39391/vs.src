@@ -7,6 +7,6 @@ const panelConfig = {
 };
 const panelTogglersArr = Array.from(document.querySelectorAll('.panel-toggler'));
 panelTogglersArr.forEach((panelTogglersArrEl) => {
-  //const panel = new PanelWithToggler(panelTogglersArrEl, panelConfig);
-  //panel.setEventListeners();
+  const panel = new PanelWithToggler(panelTogglersArrEl, panelConfig);
+  panel.setEventListeners();
 });
