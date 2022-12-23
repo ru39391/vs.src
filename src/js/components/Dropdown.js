@@ -1,27 +1,27 @@
 export class Dropdown {
   constructor(dropdown, {
-    dropdownActiveClass,
+    dropdownClassActive,
     dropdownTogglerSel,
     dropdownCaptionSel,
     dropdownItemSel,
   }) {
     this._dropdown = dropdown;
-    this._dropdownActiveClass = dropdownActiveClass;
+    this._dropdownClassActive = dropdownClassActive;
     this._dropdownToggler = this._dropdown.querySelector(dropdownTogglerSel);
     this._dropdownCaption = this._dropdown.querySelector(dropdownCaptionSel);
     this._dropdownItemsArr = Array.from(this._dropdown.querySelectorAll(dropdownItemSel));
   }
 
   _isDropdownActive() {
-    return this._dropdown.classList.contains(this._dropdownActiveClass);
+    return this._dropdown.classList.contains(this._dropdownClassActive);
   }
 
   _showDropdown() {
-    this._dropdown.classList.add(this._dropdownActiveClass);
+    this._dropdown.classList.add(this._dropdownClassActive);
   }
 
   _closeDropdown() {
-    this._dropdown.classList.remove(this._dropdownActiveClass);
+    this._dropdown.classList.remove(this._dropdownClassActive);
   }
 
   _toggleDropdown() {

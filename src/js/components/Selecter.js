@@ -6,7 +6,7 @@ export class Selecter {
     selecterTitleSel,
     selecterListClass,
     selecterOptionClass,
-    selecterClassAvtive
+    selecterClassActive
   }) {
     this._selecter = null;
     this._selectEl = selectEl;
@@ -19,7 +19,7 @@ export class Selecter {
     this._selecterTitleSel = selecterTitleSel;
     this._selecterListClass = selecterListClass;
     this._selecterOptionClass = selecterOptionClass;
-    this._selecterClassAvtive = selecterClassAvtive;
+    this._selecterClassActive = selecterClassActive;
   }
 
   _createEl(className, textContent = null) {
@@ -40,18 +40,18 @@ export class Selecter {
 
   _toggleOptions(toggler, selecter) {
     toggler.addEventListener('click', () => {
-      selecter.classList.toggle(this._selecterClassAvtive);
+      selecter.classList.toggle(this._selecterClassActive);
     });
     document.addEventListener('click', e => {
       if(!e.target.closest(this._selecterWrapperSel)) {
-        selecter.classList.remove(this._selecterClassAvtive);
+        selecter.classList.remove(this._selecterClassActive);
       }
     });
   }
 
   _hideOptions(toggler, selecter) {
     toggler.addEventListener('click', () => {
-      selecter.classList.remove(this._selecterClassAvtive);
+      selecter.classList.remove(this._selecterClassActive);
     });
   }
 

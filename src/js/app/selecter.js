@@ -8,7 +8,7 @@ const formSelectConfig = {
   selecterTitleSel: '.category__title',
   selecterListClass: 'category__list',
   selecterOptionClass: 'category__item',
-  selecterClassAvtive: 'active'
+  selecterClassActive: 'category_active'
 };
 formSelectsArr.forEach(formSelectsArrEl => {
   const selecter = new Selecter(formSelectsArrEl, formSelectConfig);

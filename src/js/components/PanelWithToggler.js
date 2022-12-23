@@ -3,11 +3,11 @@ import { Panel } from './Panel.js';
 export class PanelWithToggler extends Panel {
   constructor(panel, {
     panelSel,
-    panelActiveClass,
+    panelClassActive,
     panelBtnCloseSel,
   }) {
     super(panel, {
-      panelActiveClass,
+      panelClassActive,
       panelBtnCloseSel,
     });
     this._panelArr = [];
@@ -23,7 +23,7 @@ export class PanelWithToggler extends Panel {
     const panelCurrentIndex = this._panelArr.indexOf(this._panel);
     this._panelArr.splice(panelCurrentIndex,1);
     for(let i = 0; i < this._panelArr.length; i++) {
-      this._panelArr[i].classList.remove(this._panelActiveClass);
+      this._panelArr[i].classList.remove(this._panelClassActive);
     }
   }
 

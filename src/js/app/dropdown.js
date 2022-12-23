@@ -1,7 +1,7 @@
 import { Dropdown } from '../components/Dropdown';
 
 const dropdownConfig = {
-  dropdownActiveClass: 'active',
+  dropdownClassActive: 'category_active',
   dropdownTogglerSel: '.category__placeholder',
   dropdownCaptionSel: '.category__title',
   dropdownItemSel: '.category__item',
@@ -11,4 +11,3 @@ dropdownsArr.forEach((dropdownsArrEl) => {
   const dropdown = new Dropdown(dropdownsArrEl, dropdownConfig);
   dropdown.setEventListeners();
 });
-

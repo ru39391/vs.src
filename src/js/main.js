@@ -2,29 +2,12 @@ import '../scss/main.scss';
 
 import './app/slides';
 import './app/nav';
+import './app/tabs';
 import './app/panel';
 import './app/forms';
 import './app/header';
 import './app/dropdown';
 import './app/selecter';
-
-/* tabs */
-let sectionTabArr = [];
-document.querySelectorAll('.section__tab').forEach(sectionTab => {
-    sectionTabArr.push(sectionTab);
-});
-if(document.querySelector('.tab-toggler')){
-    document.querySelector('.tab-toggler').addEventListener('click', (e) => {
-        e.target.classList.toggle('active');
-        sectionTabArr.forEach(sectionTabArrElem => {
-            if(sectionTabArrElem.classList.contains('active')) {
-                sectionTabArrElem.classList.remove('active');
-            } else {
-                sectionTabArrElem.classList.add('active');
-            }
-        });
-    });
-}
 
 let boxArr = [];
 document.querySelectorAll('.ms2_product[id*="size"]').forEach(boxElem => {

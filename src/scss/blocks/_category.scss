@@ -11,7 +11,7 @@
     width: 100%;
   }
 
-  &.active {
+  &.category_active {
     z-index: 3;
 
     .category__title {
@@ -80,7 +80,7 @@
   font-family: $font-family_content;
 
   &:hover,
-  &.active {
+  &.category__item_active {
     background: #C4C4C4;
   }
 
