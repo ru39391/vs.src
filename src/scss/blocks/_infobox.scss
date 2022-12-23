@@ -30,7 +30,7 @@
         @include media-breakpoint-up(sm) {
             padding: 0 0 0 60px;
         }
-    
+
         @include media-breakpoint-only(xs) {
             padding: 0;
         }
@@ -140,7 +140,7 @@
         @include media-breakpoint-up(sm) {
             padding: 16px 22px;
         }
-    
+
         @include media-breakpoint-only(xs) {
             padding: 16px;
         }

@@ -77,7 +77,7 @@
         @include media-breakpoint-up(md) {
             transform: translateX(0);
         }
-    
+
         @include media-breakpoint-down(sm) {
             transform: translateY(0);
         }
@@ -97,13 +97,13 @@
 .panel__bg {
     position: absolute;
     z-index: 1;
-    
+
     @include media-breakpoint-up(lg) {
         @include wh(225px,225px);
         right: (100%/7);
         bottom: 8px;
     }
-    
+
     @include media-breakpoint-down(md) {
         @include wh(200px,200px);
         right: 16px;

@@ -1,0 +1,12 @@
+.icons {
+  display: none;
+}
+
+.icon-fluid {
+  @include wh(100%, 100%);
+  pointer-events: none;
+}
+
+.icon-prev {
+  @include wh(18px, 18px);
+}

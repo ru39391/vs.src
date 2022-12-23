@@ -1,0 +1,7 @@
+.product-tablist__pane {
+  display: none;
+
+  &.product-tablist__pane_active {
+    display: block;
+  }
+}

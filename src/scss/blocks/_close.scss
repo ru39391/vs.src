@@ -1,0 +1,11 @@
+.close {
+  @include inline-block;
+  @include wh(32px, 32px);
+  padding: 0;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  border: 0;
+  background: rgba(0, 0, 0, 0);
+}

@@ -42,7 +42,7 @@
             @include media-breakpoint-only(xs) {
                 @include fs-lh(14px,22px);
             }
-            
+
             .font-weight-bold {
                 @include media-breakpoint-only(xs) {
                     @include fs-lh(14px,22px);
@@ -75,7 +75,7 @@
             @include media-breakpoint-only(xs) {
                 @include fs-lh(14px,22px);
             }
-            
+
             .font-weight-bold {
                 @include media-breakpoint-only(xs) {
                     @include fs-lh(14px,22px);
@@ -201,7 +201,7 @@
             @include wh(76px,20px);
             margin: 0 0 0 20px;
         }
-    
+
         @include media-breakpoint-only(xs) {
             @include fw(48px);
             @include wh(48px,20px);
