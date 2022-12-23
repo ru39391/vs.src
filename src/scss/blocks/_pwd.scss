@@ -1,0 +1,7 @@
+.pwd {
+  @include font(24px, 700);
+  line-height: 30px;
+  margin: 0 0 8px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

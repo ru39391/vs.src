@@ -5,6 +5,7 @@
 @import 'tpl/mixins';
 @import 'tpl/extends';
 @import 'tpl/common';
+@import 'tpl/mixes';
 
 @import '~bootstrap/scss/utilities/flex';
 @import '~bootstrap/scss/utilities/text';
@@ -16,8 +17,13 @@
 @import '~bootstrap/scss/grid';
 
 @import 'blocks/header';
+@import 'blocks/btn';
 @import 'blocks/nav';
+@import 'blocks/map';
+@import 'blocks/pwd';
 @import 'blocks/logo';
+@import 'blocks/icons';
+@import 'blocks/close';
 @import 'blocks/panel';
 @import 'blocks/search';
 @import 'blocks/promo';
@@ -29,11 +35,14 @@
 @import 'blocks/desc';
 @import 'blocks/cart';
 @import 'blocks/overlay';
+@import 'blocks/product';
 @import 'blocks/infobox';
 @import 'blocks/results';
 @import 'blocks/contacts';
 @import 'blocks/category';
 @import 'blocks/prodlist';
+@import 'blocks/notfound';
+@import 'blocks/readmore';
 @import 'blocks/recalculate';
 @import 'blocks/footer';
 

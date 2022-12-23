@@ -1,0 +1,43 @@
+.btn {
+  @extend %btn-default;
+  @extend %border-default;
+  border-radius: 1px;
+  width: 100%;
+  max-width: 314px;
+  padding: 10px;
+  line-height: 20px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  background: #fff;
+  transition: all .3s ease 0s;
+
+  &.btn_lg {
+    width: 100%;
+    max-width: 314px;
+  }
+
+  &.btn_md {
+    width: 100%;
+    max-width: 254px;
+  }
+
+  &.btn_sm {
+    width: 100%;
+
+    @include media-breakpoint-up(sm) {
+      max-width: 135px;
+    }
+
+    @include media-breakpoint-only(xs) {
+      max-width: 100px;
+    }
+  }
+
+  &:hover {
+    color: #fff;
+    border-color: #8C8C8C;
+    background: #8C8C8C;
+  }
+}

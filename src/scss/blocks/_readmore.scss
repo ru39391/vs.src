@@ -1,0 +1,27 @@
+.readmore {
+  @extend %flex-center;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all .3s ease;
+
+  &:hover {
+    @include media-breakpoint-up(md) {
+      font-size: 1.1em;
+    }
+
+    .readmore__icon {
+      @include media-breakpoint-up(md) {
+        @include fw(96px);
+      }
+    }
+  }
+}
+
+.readmore__icon {
+  @include fw(75px);
+  @include wh(75px, 20px);
+  margin: 0 0 0 10px;
+  transition: all .3s ease;
+}

@@ -1,0 +1,23 @@
+.notfound {
+  text-align: center;
+  text-transform: uppercase;
+
+  @include media-breakpoint-up(lg) {
+    width: (100%/12*4);
+    margin: 0 0 0 (100%/12*4);
+  }
+}
+
+.notfound__picture {
+  @include wh(266px, 294px);
+  margin: 0 auto 32px;
+}
+
+.notfound__text {
+  margin: 0 0 32px;
+}
+
+.notfound__footer {
+  @extend %flex-center;
+  justify-content: center;
+}

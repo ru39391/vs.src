@@ -77,7 +77,7 @@ block wrapper
               span.prodlist__title-value Болгаргский перец
             .prodlist__value 800 г.
 
-    .section.section_divider.section_bg.section_border.tab-list
+    .section.section_divider.section_bg.section_border.section__tablist
       .section__col
         .content
           p Все заказанные абонементы мы доставляем в Ростов каждый четверг. Их можно забрать самостоятельно в эко-магазинах
@@ -87,7 +87,7 @@ block wrapper
           svg.icon-fluid
             use(xlink:href="#icon-sprouts")
       .section__col
-        .section__tab.tab-pane.active
+        .section__tab
           .infobox.infobox_row.infobox_noborder
             .infobox__content
               .infobox__title Текущий абонемент
@@ -101,10 +101,10 @@ block wrapper
               .infobox__desc.infobox__desc_sm Код доставки абонемента:
               .pwd anmy7qewlcp2
               .infobox__desc.infobox__desc_sm Сообщите этот код продавцу, чтобы забрать свою покупки.
-        .section__tab.tab-pane
+        .section__tab.section__tab_active.product-tablist
           form.form.ms2_form(method="post")
             .form__item
-              input.form__toggler(type="radio" name="delivery" id="delivery-1")
+              input.form__toggler.product-tablist__toggler(type="radio" name="delivery" id="delivery-1" value="size-1")
               label.form__label(for="delivery-1")
                 span.form__toggler.form__toggler_lg.form__toggler_visible
                   svg.icon-fluid
@@ -113,7 +113,7 @@ block wrapper
                   span.font-weight-bold 6 599
                   | руб.
             .form__item
-              input.form__toggler(type="radio" name="delivery" id="delivery-2")
+              input.form__toggler.product-tablist__toggler(type="radio" name="delivery" id="delivery-2" value="size-2")
               label.form__label(for="delivery-2")
                 span.form__toggler.form__toggler_lg.form__toggler_visible
                   svg.icon-fluid
@@ -121,11 +121,14 @@ block wrapper
                 span Десять доставок -
                   span.font-weight-bold 12 599
                   | руб.
-            button.btn(type="submit" name="ms2_action" value="cart/add") Заказать абонемент
+          #size-1.ms2_product.product-tablist__pane.product-tablist__pane_active
+            button.btn(type="submit" name="ms2_action" value="cart/add") Заказать абонемент 1
+          #size-2.ms2_product.product-tablist__pane
+            button.btn(type="submit" name="ms2_action" value="cart/add") Заказать абонемент 2
       .section__footer.section__footer_plain.text-center
-        button.btn.tab-toggler(type="button")
-          span.tab-toggler_show.zi-2 Заказать еще абонемент
-          span.tab-toggler_hide.zi-2 Активный абонемент
+        button.btn.section__tab-toggler(type="button")
+          span.section__tab-toggler_show.zi-2 Заказать еще абонемент
+          span.section__tab-toggler_hide.zi-2 Активный абонемент
 
     .section.section_flex.text-center
       .section__subtitle Самые частые вопросы про абонемент

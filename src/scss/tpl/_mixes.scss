@@ -1,0 +1,26 @@
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.text-underline {
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+.border-radius {
+  border-radius: 16px 0;
+}
+
+.color-brand {
+  @extend %color-brand;
+}
+
+.list-icon {
+  @include fw(20px);
+  @include wh(20px, 20px);
+  margin: 0 12px 0 0;
+}
