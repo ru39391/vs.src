@@ -5,7 +5,8 @@ import './app/nav';
 import './app/panel';
 import './app/forms';
 import './app/header';
-import './app/selecter';
+import './app/dropdown';
+//import './app/selecter';
 
 /* tabs */
 let sectionTabArr = [];
