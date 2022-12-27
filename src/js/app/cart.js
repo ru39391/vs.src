@@ -4,16 +4,15 @@ import { CartItem } from '../components/CartItem.js';
 
 const { baseUrl } = apiConfig;
 const api = new Api({ baseUrl });
-const cartItemTpl = document.body;
+const cartItemTpl = document.querySelector('.cart-item');
 
 Promise.all([api.getCartData(), api.getParamsData()])
 .then(([cartData, paramsData]) => {
   //console.log(cartData, paramsData);
   cartData.forEach(cartDataItem => {
-    const { key, id, uri, thumb, pagetitle, options, price, count, cost, remains } = cartDataItem;
+    const { key, uri, thumb, pagetitle, options, price, count, cost, remains } = cartDataItem;
     const cartItem = new CartItem(cartItemTpl, {
       cartItemConfig,
-      cartItemId: id,
       cartItemTitle: pagetitle,
       cartItemUrl: uri,
       cartItemPrice: price,

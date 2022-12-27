@@ -21,6 +21,15 @@ export const profileFormData = {
 
 export const cartItemConfig = {
   rowSel: '.pos',
+  keyFieldSel: '.pos__product-key',
+  linkSel: '.pos__picture',
+  pictureSel: '.img-fluid',
+  titleSel: '.pos__title',
+  counterSel: '.recalculate__value',
+  counterFieldSel: '.recalculate__field',
+  decreaseBtnSel: '.recalculate__btn_remove',
+  increaseBtnSel: '.recalculate__btn_add',
+  costSel: '.pos__cost',
 }
 
 export const apiConfig = {
