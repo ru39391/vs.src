@@ -1,7 +1,6 @@
 export class CartItem {
   constructor(cartItemTpl, {
     cartItemConfig,
-    cartItemId,
     cartItemTitle,
     cartItemUrl,
     cartItemPrice,
@@ -18,7 +17,7 @@ export class CartItem {
     this._cartItemUrl = cartItemUrl;
     this._cartItemPrice = cartItemPrice;
     this._cartItemPic = cartItemPic;
-    this._cartItemRemains = cartItemRemains;
+    this._cartItemRemains = Number(cartItemRemains);
     this._cartItemKey = cartItemKey;
     this._cartItemCount = Number(cartItemCount);
     this._cartItemCost = cartItemCost;
@@ -32,42 +31,72 @@ export class CartItem {
     this._counterFieldEl = null;
     this._decreaseBtnEl = null;
     this._increaseBtnEl = null;
+    this._changeBtnEl = null;
     this._costEl = null;
+    this._cartFormRemove = null;
   }
 
   _getEl(parentEl, sel) {
     return parentEl.querySelector(sel);
   }
 
-  _removeEl(el) {
+  _removeCartItem(el) {
     el.remove();
     el = null;
   }
 
-  _decreaseItemCounter() {
-
+  _setCartItemCost(value) {
+    const cartItemPrice = Number(this._cartItemPrice.replace(/\s/gi, ''));
+    return cartItemPrice*value;
   }
 
-  _increaseItemCounter() {
+  _handleItemCounter(value, targetBtn, siblingBtn, condition) {
+    this._counterFieldEl.value = value;
+    this._counterEl.textContent = value;
+    this._costEl.textContent = this._setCartItemCost(value);
+    siblingBtn.disabled = false;
+    targetBtn.disabled = Boolean(condition);
+    this._changeBtnEl.dispatchEvent(new MouseEvent('click'));
   }
 
-  _setCartItemCost() {
+  _decreaseItemCounter(value) {
+    this._handleItemCounter(value, this._decreaseBtnEl, this._increaseBtnEl, value === 1);
+  }
 
+  _increaseItemCounter(value) {
+    this._handleItemCounter(value, this._increaseBtnEl, this._decreaseBtnEl, value === this._cartItemRemains);
   }
 
   _setEventListeners() {
+    this._decreaseBtnEl.addEventListener('click', () => {
+      const value = Number(this._counterFieldEl.value) - 1;
+      this._decreaseItemCounter(value);
+    });
 
-  }
+    this._increaseBtnEl.addEventListener('click', () => {
+      const value = Number(this._counterFieldEl.value) + 1;
+      this._increaseItemCounter(value);
+    });
 
-  _setEventListeners() {
-
-  }
-
-  removeCartItem() {
+    this._cartFormRemove.addEventListener('submit', () => {
+      this._removeCartItem(this._cartItemEl);
+    });
   }
 
   createCartItem() {
-    const { keyFieldSel, linkSel, pictureSel, titleSel, counterSel, counterFieldSel, decreaseBtnSel, increaseBtnSel, costSel } = this._cartItemConfig;
+    const {
+      keyFieldSel,
+      linkSel,
+      pictureSel,
+      titleSel,
+      counterSel,
+      counterFieldSel,
+      decreaseBtnSel,
+      increaseBtnSel,
+      changeBtnSel,
+      costSel,
+      formRemoveSel,
+    } = this._cartItemConfig;
     this._cartItemEl = this._cartItemTpl.cloneNode(true);
     this._cartItemEl.id = this._cartItemKey;
 
@@ -93,7 +122,10 @@ export class CartItem {
     this._costEl.textContent = this._cartItemCost;
 
     this._decreaseBtnEl = this._getEl(this._cartItemEl, decreaseBtnSel);
+    this._decreaseBtnEl.disabled = Boolean(this._cartItemCount === 1);
+
     this._increaseBtnEl = this._getEl(this._cartItemEl, increaseBtnSel);
+    this._increaseBtnEl.disabled = Boolean(this._cartItemCount === this._cartItemRemains);
 
     this._pictureEl = document.createElement('img');
     this._pictureEl.src = this._cartItemPic;
@@ -101,7 +133,9 @@ export class CartItem {
     this._pictureEl.classList.add(pictureSel);
     this._linkEl.append(this._pictureEl);
 
-    console.log(this._cartItemCount)
-    document.querySelector('.header + .wrapper').prepend(this._cartItemEl);
+    this._changeBtnEl = this._getEl(this._cartItemEl, changeBtnSel);
+    this._cartFormRemove = this._getEl(this._cartItemEl, formRemoveSel);
+
+    this._setEventListeners();
   }
 }

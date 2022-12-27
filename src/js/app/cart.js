@@ -2,9 +2,8 @@ import { apiConfig, cartItemConfig } from '../utils/constants.js';
 import { Api } from '../components/Api.js';
 import { CartItem } from '../components/CartItem.js';
 
-const { baseUrl } = apiConfig;
-const api = new Api({ baseUrl });
-const cartItemTpl = document.querySelector('.cart-item');
+const api = new Api(apiConfig);
+const cartItemTpl = document.querySelector(cartItemConfig.tplSel);
 
 Promise.all([api.getCartData(), api.getParamsData()])
 .then(([cartData, paramsData]) => {

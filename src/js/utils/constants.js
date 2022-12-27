@@ -20,6 +20,7 @@ export const profileFormData = {
 };
 
 export const cartItemConfig = {
+  tplSel: '.cart-item',
   rowSel: '.pos',
   keyFieldSel: '.pos__product-key',
   linkSel: '.pos__picture',
@@ -29,7 +30,9 @@ export const cartItemConfig = {
   counterFieldSel: '.recalculate__field',
   decreaseBtnSel: '.recalculate__btn_remove',
   increaseBtnSel: '.recalculate__btn_add',
+  changeBtnSel: '.recalculate__handler',
   costSel: '.pos__cost',
+  formRemoveSel: '[name="cart_item_remove"]',
 }
 
 export const apiConfig = {

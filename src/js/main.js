@@ -8,4 +8,4 @@ import './app/forms';
 import './app/header';
 import './app/dropdown';
 import './app/selecter';
-//import './app/cart';
+import './app/cart';
