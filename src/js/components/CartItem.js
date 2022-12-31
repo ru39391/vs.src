@@ -137,5 +137,6 @@ export class CartItem {
     this._cartFormRemove = this._getEl(this._cartItemEl, formRemoveSel);
 
     this._setEventListeners();
+    return this._cartItemEl;
   }
 }

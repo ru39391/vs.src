@@ -19,6 +19,19 @@ export const profileFormData = {
   loginForm: document.forms.loginForm,
 };
 
+export const panelConfig = {
+  panelSel: '.panel',
+  panelClassActive: 'active',
+  panelBtnCloseSel: '.panel__btn_close',
+};
+
+export const cartPanelConfig = {
+  cartTogglerSel: '.header__toggler_cart',
+  cartEmptySel: '.cart_type_empty',
+  cartFullSel: '.cart_type_full',
+  inactiveClassName: 'd-none'
+}
+
 export const cartItemConfig = {
   tplSel: '.cart-item',
   rowSel: '.pos',
@@ -36,5 +49,5 @@ export const cartItemConfig = {
 }
 
 export const apiConfig = {
-  baseUrl: 'http://o-batat.local/api',
+  baseUrl: `${window.location.origin}/api`,
 }
