@@ -29,6 +29,8 @@ export const cartPanelConfig = {
   cartTogglerSel: '.header__toggler_cart',
   cartEmptySel: '.cart_type_empty',
   cartFullSel: '.cart_type_full',
+  cartWrapperSel: '.cart__wrapper',
+  cartFooterSel: '.cart__footer',
   inactiveClassName: 'd-none'
 }
 
@@ -37,7 +39,6 @@ export const cartItemConfig = {
   rowSel: '.pos',
   keyFieldSel: '.pos__product-key',
   linkSel: '.pos__picture',
-  pictureSel: '.img-fluid',
   titleSel: '.pos__title',
   counterSel: '.recalculate__value',
   counterFieldSel: '.recalculate__field',
@@ -46,6 +47,7 @@ export const cartItemConfig = {
   changeBtnSel: '.recalculate__handler',
   costSel: '.pos__cost',
   formRemoveSel: '[name="cart_item_remove"]',
+  pictureClassName: 'img-fluid',
 }
 
 export const apiConfig = {
