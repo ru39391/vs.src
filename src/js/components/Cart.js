@@ -4,7 +4,6 @@ export class Cart {
     cartItemConfig,
     cartWrapper,
     data,
-    params,
     getCartSumm
   }) {
     this._cartItemConfig = cartItemConfig;
@@ -12,7 +11,6 @@ export class Cart {
     this._cartWrapper = cartWrapper;
     this._cartWrapperChildNodesArr = Array.from(cartWrapper.childNodes);
     this._cartItemsArr = data;
-    this._cartParams = params;
     this._cartData = {};
     this._getCartSumm = getCartSumm;
   }
