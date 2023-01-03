@@ -3,14 +3,11 @@ export class Cart {
     cartItemTpl,
     cartItemConfig,
     cartWrapper,
-    data,
     getCartSumm
   }) {
     this._cartItemConfig = cartItemConfig;
     this._cartItemTpl = cartItemTpl.content.querySelector(this._cartItemConfig.rowSel);
     this._cartWrapper = cartWrapper;
-    this._cartWrapperChildNodesArr = Array.from(cartWrapper.childNodes);
-    this._cartItemsArr = data;
     this._cartData = {};
     this._getCartSumm = getCartSumm;
   }
@@ -198,12 +195,12 @@ export class Cart {
     return cartItemEl;
   }
 
-  renderCartItems() {
-    this._cartWrapperChildNodesArr.forEach((cartWrapperChildNodesArrEl) => {
+  renderCartItems(arr) {
+    Array.from(this._cartWrapper.childNodes).forEach((cartWrapperChildNodesArrEl) => {
       this._removeEl(cartWrapperChildNodesArrEl);
     });
-    this._cartItemsArr.forEach((cartItemsArrEl) => {
-      const cartItem = this._createCartItem(cartItemsArrEl);
+    arr.forEach((item) => {
+      const cartItem = this._createCartItem(item);
       this._cartWrapper.append(cartItem);
     });
     this._getCartSumm(this._cartData);

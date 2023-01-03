@@ -1,12 +1,5 @@
 export class CartFooter {
-  constructor(cartFooter, config, {
-    minprice,
-    cartUrl,
-    cartAlert,
-    totalCaption,
-    currencyCaption,
-    btnCaption
-  }) {
+  constructor(cartFooter, config) {
     this._cartFooter = cartFooter;
     this._cartFooterChildNodesArr = Array.from(this._cartFooter.childNodes);
     this._cartFooterConfig = config;
@@ -14,12 +7,12 @@ export class CartFooter {
     this._cartSummEl = null;
     this._cartCaptionEl = null;
     this._cartSummValueEl = null;
-    this._minCartSumm = Number(minprice);
-    this._cartUrl = cartUrl;
-    this._cartAlert = cartAlert;
-    this._totalCaption = totalCaption;
-    this._currencyCaption = currencyCaption;
-    this._btnCaption = btnCaption;
+    this._minCartSumm = 0;
+    this._cartUrl = '';
+    this._cartAlert = '';
+    this._totalCaption = '';
+    this._currencyCaption = '';
+    this._btnCaption = '';
   }
 
   _removeEl(el) {
@@ -33,8 +26,23 @@ export class CartFooter {
     return el;
   }
 
-  renderCartFooter() {
+  renderCartFooter(data) {
+    const {
+      minprice,
+      cartUrl,
+      cartAlert,
+      totalCaption,
+      currencyCaption,
+      btnCaption
+    } = data;
     const { cartSummClassName, cartCaptionClassName, cartSummValueClassName } = this._cartFooterConfig;
+
+    this._minCartSumm = Number(minprice);
+    this._cartUrl = cartUrl;
+    this._cartAlert = cartAlert;
+    this._totalCaption = totalCaption;
+    this._currencyCaption = currencyCaption;
+    this._btnCaption = btnCaption;
 
     this._cartFooterChildNodesArr.forEach((cartFooterChildNodesArrEl) => {
       this._removeEl(cartFooterChildNodesArrEl);

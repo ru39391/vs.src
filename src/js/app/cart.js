@@ -27,24 +27,30 @@ const cartFullEl = document.querySelector(cartFullSel);
 const cartWrapperEl = cartFullEl.querySelector(cartWrapperSel);
 const cartFooterEl = cartFullEl.querySelector(cartFooterSel);
 
-function renderCartData() {
-  Promise.all([api.getCartData(), api.getParamsData()])
-  .then(([cartData, paramsData]) => {
-    if(cartData.length) {
-      const cartFooter =  new CartFooter(cartFooterEl, cartFooterConfig, paramsData);
-      cartFooterEl.replaceWith(cartFooter.renderCartFooter());
+const cartFooter =  new CartFooter(cartFooterEl, cartFooterConfig);
+const cart =  new Cart({
+  cartItemTpl,
+  cartItemConfig,
+  cartWrapper: cartWrapperEl,
+  getCartSumm: (data) => {
+    const currSummValue = Object.values(data).reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+    cartFooter.setCartFooterData(currSummValue);
+  }
+});
 
-      const cart =  new Cart({
-        cartItemTpl,
-        cartItemConfig,
-        cartWrapper: cartWrapperEl,
-        data: cartData,
-        getCartSumm: (data) => {
-          const currSummValue = Object.values(data).reduce((previousValue, currentValue) => previousValue + currentValue, 0);
-          cartFooter.setCartFooterData(currSummValue);
-        }
-      });
-      cart.renderCartItems();
+api.getParamsData()
+.then((res) => {
+  cartFooterEl.replaceWith(cartFooter.renderCartFooter(res));
+})
+.catch((err) => {
+  console.log(err);
+});
+
+function renderCartData() {
+  api.getCartData()
+  .then((res) => {
+    if(res.length) {
+      cart.renderCartItems(res);
       cartEmptyEl.classList.add(inactiveClassName);
       cartFullEl.classList.remove(inactiveClassName);
     } else {
