@@ -1,3 +1,6 @@
+import { helpers } from '../utils/constants.js';
+const { createEl, removeEl } = helpers;
+
 export class CartFooter {
   constructor(cartFooter, config) {
     this._cartFooter = cartFooter;
@@ -16,14 +19,11 @@ export class CartFooter {
   }
 
   _removeEl(el) {
-    el.remove();
-    el = null;
+    removeEl(el);
   }
 
   _createEl(tagName, className) {
-    const el = document.createElement(tagName);
-    el.classList.add(className);
-    return el;
+    return createEl(tagName, className);
   }
 
   renderCartFooter(data) {

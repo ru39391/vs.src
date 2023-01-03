@@ -62,3 +62,18 @@ export const cartItemConfig = {
 export const apiConfig = {
   baseUrl: `${window.location.origin}/api`,
 };
+
+export const helpers = {
+  getEl: (sel, parentEl = document) => {
+    return parentEl.querySelector(sel);
+  },
+  createEl: (tagName, className) => {
+    const el = document.createElement(tagName);
+    el.classList.add(className);
+    return el;
+  },
+  removeEl: (el) => {
+    el.remove();
+    el = null;
+  }
+};

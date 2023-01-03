@@ -1,3 +1,6 @@
+import { helpers } from '../utils/constants.js';
+const { getEl, createEl, removeEl } = helpers;
+
 export class Cart {
   constructor({
     cartItemTpl,
@@ -13,19 +16,17 @@ export class Cart {
   }
 
   _getEl(parentEl, sel) {
-    return parentEl.querySelector(sel);
+    return getEl(sel, parentEl);
   }
 
   _createEl({tagName, className, parentEl}) {
-    const el = document.createElement(tagName);
-    el.classList.add(className);
+    const el = createEl(tagName, className);
     parentEl.append(el);
     return el;
   }
 
   _removeEl(el) {
-    el.remove();
-    el = null;
+    removeEl(el);
   }
 
   _setCartItemCost({

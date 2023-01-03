@@ -3,7 +3,8 @@ import {
   panelConfig,
   cartPanelConfig,
   cartFooterConfig,
-  cartItemConfig
+  cartItemConfig,
+  helpers
 } from '../utils/constants.js';
 import { Api } from '../components/Api.js';
 import { Cart } from '../components/Cart.js';
@@ -19,24 +20,27 @@ const {
   cartWrapperSel,
   cartFooterSel
 } = cartPanelConfig;
-const cartTogglerEl = document.querySelector(cartTogglerSel);
-const cartItemTpl = document.querySelector(cartItemConfig.tplSel);
-const cartEmptyEl = document.querySelector(cartEmptySel);
-const cartFullEl = document.querySelector(cartFullSel);
+const { getEl } = helpers;
 
-const cartWrapperEl = cartFullEl.querySelector(cartWrapperSel);
-const cartFooterEl = cartFullEl.querySelector(cartFooterSel);
+const cartEmptyEl = getEl(cartEmptySel);
+const cartFullEl = getEl(cartFullSel);
+const cartFooterEl = getEl(cartFooterSel, cartFullEl);
 
 const cartFooter =  new CartFooter(cartFooterEl, cartFooterConfig);
 const cart =  new Cart({
-  cartItemTpl,
+  cartItemTpl: getEl(cartItemConfig.tplSel),
   cartItemConfig,
-  cartWrapper: cartWrapperEl,
+  cartWrapper: getEl(cartWrapperSel, cartFullEl),
   getCartSumm: (data) => {
     const currSummValue = Object.values(data).reduce((previousValue, currentValue) => previousValue + currentValue, 0);
     cartFooter.setCartFooterData(currSummValue);
   }
 });
+
+function togglePanels(hiddenPanel, visiblePanel, className) {
+  hiddenPanel.classList.add(className);
+  visiblePanel.classList.remove(className);
+}
 
 api.getParamsData()
 .then((res) => {
@@ -51,11 +55,9 @@ function renderCartData() {
   .then((res) => {
     if(res.length) {
       cart.renderCartItems(res);
-      cartEmptyEl.classList.add(inactiveClassName);
-      cartFullEl.classList.remove(inactiveClassName);
+      togglePanels(cartEmptyEl, cartFullEl, inactiveClassName);
     } else {
-      cartEmptyEl.classList.remove(inactiveClassName);
-      cartFullEl.classList.add(inactiveClassName);
+      togglePanels(cartFullEl, cartEmptyEl, inactiveClassName);
     };
   })
   .catch((err) => {
@@ -63,8 +65,12 @@ function renderCartData() {
   });
 }
 
-const cartPanel = new PanelWithCart(cartTogglerEl, panelConfig);
+const cartPanel = new PanelWithCart(getEl(cartTogglerSel), panelConfig);
 cartPanel.setEventListeners();
 cartPanel.renderData(() => {
   renderCartData();
+});
+
+miniShop2.Callbacks.add('Cart.add.response.success', 'cartAddSuccess', () => {
+  cartPanel.showPanel();
 });

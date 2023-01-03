@@ -1,3 +1,6 @@
+import { helpers } from '../utils/constants.js';
+const { createEl } = helpers;
+
 export class Selecter {
   constructor(selectEl, {
     selecterTplSel,
@@ -23,8 +26,7 @@ export class Selecter {
   }
 
   _createEl(className, textContent = null) {
-    const el = document.createElement('div');
-    el.classList.add(className);
+    const el = createEl('div', className);
     if(textContent) {
       el.textContent = textContent;
     }

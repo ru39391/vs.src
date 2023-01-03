@@ -21,4 +21,8 @@ export class PanelWithCart extends PanelWithToggler {
     super._showPanel();
     this._renderData();
   }
+
+  showPanel() {
+    this._showPanel();
+  }
 }
