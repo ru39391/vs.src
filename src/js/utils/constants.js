@@ -26,7 +26,7 @@ export const panelConfig = {
 };
 
 export const cartPanelConfig = {
-  cartTogglerSel: '.header__toggler_cart',
+  cartTogglerSel: '.header__toggler_target_cart',
   cartEmptySel: '.cart_type_empty',
   cartFullSel: '.cart_type_full',
   cartWrapperSel: '.cart__wrapper',
@@ -65,7 +65,8 @@ export const apiConfig = {
 
 export const helpers = {
   getEl: (sel, parentEl = document) => {
-    return parentEl.querySelector(sel);
+    const parent = Boolean(parentEl) ? parentEl : document;
+    return parent.querySelector(sel);
   },
   createEl: (tagName, className) => {
     const el = document.createElement(tagName);

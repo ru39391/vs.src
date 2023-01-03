@@ -22,12 +22,13 @@ const {
 } = cartPanelConfig;
 const { getEl } = helpers;
 
+const cartTogglerEl = getEl(cartTogglerSel);
 const cartEmptyEl = getEl(cartEmptySel);
 const cartFullEl = getEl(cartFullSel);
 const cartFooterEl = getEl(cartFooterSel, cartFullEl);
 
 const cartFooter =  new CartFooter(cartFooterEl, cartFooterConfig);
-const cart =  new Cart({
+const cart = new Cart({
   cartItemTpl: getEl(cartItemConfig.tplSel),
   cartItemConfig,
   cartWrapper: getEl(cartWrapperSel, cartFullEl),
@@ -38,8 +39,10 @@ const cart =  new Cart({
 });
 
 function togglePanels(hiddenPanel, visiblePanel, className) {
-  hiddenPanel.classList.add(className);
-  visiblePanel.classList.remove(className);
+  if(hiddenPanel && visiblePanel) {
+    hiddenPanel.classList.add(className);
+    visiblePanel.classList.remove(className);
+  }
 }
 
 api.getParamsData()
@@ -65,12 +68,16 @@ function renderCartData() {
   });
 }
 
-const cartPanel = new PanelWithCart(getEl(cartTogglerSel), panelConfig);
-cartPanel.setEventListeners();
-cartPanel.renderData(() => {
-  renderCartData();
-});
+if(cartTogglerEl) {
+  const cartPanel = new PanelWithCart(cartTogglerEl, panelConfig);
+  cartPanel.setEventListeners();
+  cartPanel.renderData(() => {
+    renderCartData();
+  });
 
-miniShop2.Callbacks.add('Cart.add.response.success', 'cartAddSuccess', () => {
-  cartPanel.showPanel();
-});
+  miniShop2.Callbacks.add('Cart.add.response.success', 'cartAddSuccess', () => {
+    cartPanel.showPanel();
+  });
+} else {
+  renderCartData();
+}
