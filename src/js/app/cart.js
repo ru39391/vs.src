@@ -1,4 +1,10 @@
-import { apiConfig, panelConfig, cartPanelConfig, cartItemConfig } from '../utils/constants.js';
+import {
+  apiConfig,
+  panelConfig,
+  cartPanelConfig,
+  cartFooterConfig,
+  cartItemConfig
+} from '../utils/constants.js';
 import { Api } from '../components/Api.js';
 import { Cart } from '../components/Cart.js';
 import { CartFooter } from '../components/CartFooter.js';
@@ -21,30 +27,21 @@ const cartFullEl = document.querySelector(cartFullSel);
 const cartWrapperEl = cartFullEl.querySelector(cartWrapperSel);
 const cartFooterEl = cartFullEl.querySelector(cartFooterSel);
 
-function createEl(tagName, className) {
-  const el = document.createElement(tagName);
-  el.classList.add(className);
-  return el;
-}
-
 function renderCartData() {
   Promise.all([api.getCartData(), api.getParamsData()])
   .then(([cartData, paramsData]) => {
     if(cartData.length) {
-      const { minprice } = paramsData;
-      const cartFooter =  new CartFooter(cartFooterEl, paramsData);
-      console.log(cartFooter);
+      const cartFooter =  new CartFooter(cartFooterEl, cartFooterConfig, paramsData);
       cartFooterEl.replaceWith(cartFooter.renderCartFooter());
+
       const cart =  new Cart({
         cartItemTpl,
         cartItemConfig,
         cartWrapper: cartWrapperEl,
         data: cartData,
         getCartSumm: (data) => {
-          const minSummValue = Number(minprice);
           const currSummValue = Object.values(data).reduce((previousValue, currentValue) => previousValue + currentValue, 0);
-          cartFooter.setCartFooterData(currSummValue, 'text-center');
-          console.log(minSummValue, currSummValue);
+          cartFooter.setCartFooterData(currSummValue);
         }
       });
       cart.renderCartItems();

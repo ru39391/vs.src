@@ -32,7 +32,16 @@ export const cartPanelConfig = {
   cartWrapperSel: '.cart__wrapper',
   cartFooterSel: '.cart__footer',
   inactiveClassName: 'd-none'
-}
+};
+
+export const cartFooterConfig = {
+  cartSummClassName: 'cart__summ',
+  cartSummMod: 'cart__summ_mb_none',
+  cartCaptionClassName: 'cart__caption',
+  cartSummValueClassName: 'cart__summ-value',
+  cartBtnClassNameArr: ['btn', 'btn_md'],
+  cartFooterClassName: 'text-center',
+};
 
 export const cartItemConfig = {
   tplSel: '.cart-item',
@@ -48,8 +57,8 @@ export const cartItemConfig = {
   costSel: '.pos__cost',
   formRemoveSel: '[name="cart_item_remove"]',
   pictureClassName: 'img-fluid',
-}
+};
 
 export const apiConfig = {
   baseUrl: `${window.location.origin}/api`,
-}
+};
