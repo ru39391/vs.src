@@ -33,6 +33,16 @@ function renderCartData() {
         cartWrapper,
         data: cartData,
         params: paramsData,
+        getCartSumm: (data) => {
+          const minSummValue = Number(paramsData.minprice);
+          const currSummValue = Object.values(data).reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+          console.log(minSummValue, currSummValue);
+          if(minSummValue > currSummValue) {
+            cartFooter.textContent = `${paramsData.cartAlert} ${minSummValue - currSummValue} ${paramsData.currencyCaption}`;
+          } else {
+            cartFooter.textContent = '';
+          }
+        }
       });
       cart.renderCartItems();
     } else {

@@ -5,6 +5,7 @@ export class Cart {
     cartWrapper,
     data,
     params,
+    getCartSumm
   }) {
     this._cartItemConfig = cartItemConfig;
     this._cartItemTpl = cartItemTpl.content.querySelector(this._cartItemConfig.rowSel);
@@ -12,6 +13,8 @@ export class Cart {
     this._cartWrapperChildNodesArr = Array.from(cartWrapper.childNodes);
     this._cartItemsArr = data;
     this._cartParams = params;
+    this._cartData = {};
+    this._getCartSumm = getCartSumm;
   }
 
   _getEl(parentEl, sel) {
@@ -38,6 +41,11 @@ export class Cart {
     return cartItemPrice*value;
   }
 
+  _setCartSumm(key, value) {
+    this._cartData[key] = value;
+    this._getCartSumm(this._cartData);
+  }
+
   _handleItemCounter(targetBtn, siblingBtn, condition, elems, valuesData) {
     const {
       changeBtnEl,
@@ -45,14 +53,21 @@ export class Cart {
       counterEl,
       costEl
     } = elems;
-    const { value } = valuesData;
+    const {
+      key,
+      value
+    } = valuesData;
+    const cartItemCost = this._setCartItemCost(valuesData);
 
     siblingBtn.disabled = false;
     targetBtn.disabled = Boolean(condition);
+
     counterFieldEl.value = value;
     counterEl.textContent = value;
-    costEl.textContent = this._setCartItemCost(valuesData);
+    costEl.textContent = cartItemCost;
+
     changeBtnEl.dispatchEvent(new MouseEvent('click'));
+    this._setCartSumm(key, cartItemCost);
   }
 
   _setBtnEventListeners(data) {
@@ -62,6 +77,7 @@ export class Cart {
       elems,
     } = data;
     const {
+      key,
       price,
       remainsValue,
     } = values;
@@ -73,18 +89,19 @@ export class Cart {
 
     decreaseBtnEl.addEventListener('click', (e) => {
       const value = Number(counterFieldEl.value) - 1;
-      this._handleItemCounter(e.target, increaseBtnEl, value === 1, elems, { value, price });
+      this._handleItemCounter(e.target, increaseBtnEl, value === 1, elems, { key, value, price });
     });
 
     increaseBtnEl.addEventListener('click', (e) => {
       const value = Number(counterFieldEl.value) + 1;
-      this._handleItemCounter(e.target, decreaseBtnEl, value === remainsValue, elems, { value, price });
+      this._handleItemCounter(e.target, decreaseBtnEl, value === remainsValue, elems, { key, value, price });
     });
   }
 
-  _setFormEventListeners(el, form) {
+  _setFormEventListeners(key, el, form) {
     form.addEventListener('submit', () => {
       this._removeEl(el);
+      this._setCartSumm(key, 0);
     });
   }
 
@@ -156,8 +173,14 @@ export class Cart {
     const changeBtnEl = this._getEl(cartItemEl, changeBtnSel);
     const cartFormRemove = this._getEl(cartItemEl, formRemoveSel);
 
+    this._cartData[key] = this._setCartItemCost({
+      value: countValue,
+      price
+    });
+
     this._setBtnEventListeners({
       values: {
+        key,
         price,
         remainsValue,
       },
@@ -172,7 +195,7 @@ export class Cart {
         costEl
       }
     });
-    this._setFormEventListeners(cartItemEl, cartFormRemove);
+    this._setFormEventListeners(key, cartItemEl, cartFormRemove);
 
     return cartItemEl;
   }
@@ -185,5 +208,6 @@ export class Cart {
       const cartItem = this._createCartItem(cartItemsArrEl);
       this._cartWrapper.append(cartItem);
     });
+    this._getCartSumm(this._cartData);
   }
 }
