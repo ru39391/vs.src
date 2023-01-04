@@ -5,11 +5,11 @@ import {
   cartFooterConfig,
   cartItemConfig,
   helpers
-} from '../utils/constants.js';
-import { Api } from '../components/Api.js';
-import { Cart } from '../components/Cart.js';
-import { CartFooter } from '../components/CartFooter.js';
-import { PanelWithCart } from '../components/PanelWithCart.js';
+} from '../utils/constants';
+import { Api } from '../components/Api';
+import { Cart } from '../components/Cart';
+import { CartFooter } from '../components/CartFooter';
+import { PanelWithCart } from '../components/PanelWithCart';
 
 const { getEl } = helpers;
 const {

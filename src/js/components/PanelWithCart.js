@@ -1,4 +1,4 @@
-import { PanelWithToggler } from './PanelWithToggler.js';
+import { PanelWithToggler } from './PanelWithToggler';
 
 export class PanelWithCart extends PanelWithToggler {
   constructor(panel, {

@@ -1,4 +1,4 @@
-import { helpers } from '../utils/constants.js';
+import { helpers } from '../utils/constants';
 const { getEl, createEl, removeEl } = helpers;
 
 export class Cart {
