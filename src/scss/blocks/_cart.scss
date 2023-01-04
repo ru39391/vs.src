@@ -117,11 +117,15 @@
 
   &.cart__summ_mb_none {
     @include media-breakpoint-up(lg) {
-      margin-bottom: 0;
+      margin-right: 16px;
+    }
+
+    @include media-breakpoint-down(md) {
+      margin-bottom: 16px;
     }
 
     .cart__caption {
-      display: none;
+      display: block;
       margin-right: 0;
     }
   }

@@ -10,6 +10,7 @@ import { Api } from '../components/Api';
 import { Cart } from '../components/Cart';
 import { CartFooter } from '../components/CartFooter';
 import { PanelWithCart } from '../components/PanelWithCart';
+import '../../../../assets/components/minishop2/js/web/default';
 
 const { getEl } = helpers;
 const {

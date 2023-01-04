@@ -58,7 +58,7 @@ export const cartItemConfig = {
   changeBtnSel: '.recalculate__handler',
   costSel: '.pos__cost',
   formRemoveSel: '[name="cart_item_remove"]',
-  pictureClassName: 'img-fluid',
+  pictureClassName: 'img-cover',
 };
 
 export const apiConfig = {
