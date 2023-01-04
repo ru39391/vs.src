@@ -111,7 +111,8 @@ export class Cart {
       price,
       count,
       cost,
-      remains
+      remains,
+      pcode
     } = item;
     const {
       keyFieldSel,
@@ -130,6 +131,7 @@ export class Cart {
     const remainsValue = Number(remains);
     const cartItemEl = this._cartItemTpl.cloneNode(true);
     cartItemEl.id = key;
+    cartItemEl.setAttribute('data-mspc2-id', pcode.mspc);
 
     const keyFieldsArr = Array.from(cartItemEl.querySelectorAll(keyFieldSel));
     for(let i = 0; i < keyFieldsArr.length; i++) {
@@ -194,6 +196,11 @@ export class Cart {
     this._setFormEventListeners(key, cartItemEl, cartFormRemove);
 
     return cartItemEl;
+  }
+
+  getDiscountAmount(value) {
+    this._cartData['discount'] = Boolean(value) ? value*(-1) : 0;
+    this._getCartSumm(this._cartData);
   }
 
   renderCartItems(arr) {

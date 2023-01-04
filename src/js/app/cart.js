@@ -11,7 +11,7 @@ import { Cart } from '../components/Cart.js';
 import { CartFooter } from '../components/CartFooter.js';
 import { PanelWithCart } from '../components/PanelWithCart.js';
 
-const api = new Api(apiConfig);
+const { getEl } = helpers;
 const {
   cartTogglerSel,
   cartEmptySel,
@@ -20,14 +20,16 @@ const {
   cartWrapperSel,
   cartFooterSel
 } = cartPanelConfig;
-const { getEl } = helpers;
 
+const cartTogglerEl = getEl(cartTogglerSel);
 const cartEmptyEl = getEl(cartEmptySel);
 const cartFullEl = getEl(cartFullSel);
 const cartFooterEl = getEl(cartFooterSel, cartFullEl);
+const orderBtnEl = getEl(cartFooterConfig.orderBtnSel);
 
-const cartFooter =  new CartFooter(cartFooterEl, cartFooterConfig);
-const cart =  new Cart({
+const api = new Api(apiConfig);
+const cartFooter =  new CartFooter(cartFooterEl, orderBtnEl, cartFooterConfig);
+const cart = new Cart({
   cartItemTpl: getEl(cartItemConfig.tplSel),
   cartItemConfig,
   cartWrapper: getEl(cartWrapperSel, cartFullEl),
@@ -38,23 +40,56 @@ const cart =  new Cart({
 });
 
 function togglePanels(hiddenPanel, visiblePanel, className) {
-  hiddenPanel.classList.add(className);
-  visiblePanel.classList.remove(className);
+  if(hiddenPanel && visiblePanel) {
+    hiddenPanel.classList.add(className);
+    visiblePanel.classList.remove(className);
+  }
 }
 
 api.getParamsData()
 .then((res) => {
-  cartFooterEl.replaceWith(cartFooter.renderCartFooter(res));
+  if(cartFooterEl) {
+    cartFooterEl.replaceWith(cartFooter.renderCartFooter(res));
+  }
 })
 .catch((err) => {
   console.log(err);
 });
 
 function renderCartData() {
-  api.getCartData()
-  .then((res) => {
-    if(res.length) {
-      cart.renderCartItems(res);
+  Promise.all([api.getCartData(), api.getPromoKeysData()])
+  .then(([cartData, promoKeysData]) => {
+    const cartDataArr = cartData.map((item) => {
+      const {
+        key,
+        uri,
+        thumb,
+        pagetitle,
+        options,
+        price,
+        count,
+        cost,
+        remains
+      } = item;
+      return {
+        key,
+        uri,
+        thumb,
+        pagetitle,
+        options,
+        price,
+        count,
+        cost,
+        remains,
+        pcode: promoKeysData.find((item) => {
+          if(item.key == key) {
+            return item;
+          }
+        })
+      }
+    });
+    if(cartDataArr.length) {
+      cart.renderCartItems(cartDataArr);
       togglePanels(cartEmptyEl, cartFullEl, inactiveClassName);
     } else {
       togglePanels(cartFullEl, cartEmptyEl, inactiveClassName);
@@ -65,12 +100,26 @@ function renderCartData() {
   });
 }
 
-const cartPanel = new PanelWithCart(getEl(cartTogglerSel), panelConfig);
-cartPanel.setEventListeners();
-cartPanel.renderData(() => {
+if(cartTogglerEl) {
+  const cartPanel = new PanelWithCart(cartTogglerEl, panelConfig);
+  cartPanel.setEventListeners();
+  cartPanel.renderData(() => {
+    renderCartData();
+  });
+
+  miniShop2.Callbacks.add('Cart.add.response.success', 'cartAddSuccess', () => {
+    cartPanel.showPanel();
+  });
+} else {
   renderCartData();
+}
+
+$(document).on('mspc2_set', (e, response) => {
+  const { data } = response;
+  cart.getDiscountAmount(data.discount_amount);
 });
 
-miniShop2.Callbacks.add('Cart.add.response.success', 'cartAddSuccess', () => {
-  cartPanel.showPanel();
+$(document).on('mspc2_unset', (e, response) => {
+  const { data } = response;
+  cart.getDiscountAmount(data.discount_amount);
 });

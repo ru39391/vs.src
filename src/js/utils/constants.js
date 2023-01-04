@@ -26,7 +26,7 @@ export const panelConfig = {
 };
 
 export const cartPanelConfig = {
-  cartTogglerSel: '.header__toggler_cart',
+  cartTogglerSel: '.header__toggler_target_cart',
   cartEmptySel: '.cart_type_empty',
   cartFullSel: '.cart_type_full',
   cartWrapperSel: '.cart__wrapper',
@@ -39,7 +39,9 @@ export const cartFooterConfig = {
   cartSummMod: 'cart__summ_mb_none',
   cartCaptionClassName: 'cart__caption',
   cartSummValueClassName: 'cart__summ-value',
+  cartBtnId: 'ms2_order_cost',
   cartBtnClassNameArr: ['btn', 'btn_md'],
+  orderBtnSel: '.btn_order_submit',
   cartFooterClassName: 'text-center',
 };
 
@@ -65,7 +67,8 @@ export const apiConfig = {
 
 export const helpers = {
   getEl: (sel, parentEl = document) => {
-    return parentEl.querySelector(sel);
+    const parent = Boolean(parentEl) ? parentEl : document;
+    return parent.querySelector(sel);
   },
   createEl: (tagName, className) => {
     const el = document.createElement(tagName);
