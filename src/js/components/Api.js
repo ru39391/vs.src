@@ -24,6 +24,13 @@ export class Api {
       .then(res => this._checkResponse(res));
   }
 
+  getPromoKeysData() {
+    return fetch(`${this._baseUrl}/mspckeys`, {
+      headers: this._setHeaders(),
+    })
+      .then(res => this._checkResponse(res));
+  }
+
   getParamsData() {
     return fetch(`${this._baseUrl}/params`, {
       headers: this._setHeaders(),

@@ -2,14 +2,15 @@ import { helpers } from '../utils/constants.js';
 const { createEl, removeEl } = helpers;
 
 export class CartFooter {
-  constructor(cartFooter, config) {
+  constructor(cartFooter, orderBtn, config) {
     this._cartFooter = cartFooter;
-    this._cartFooterChildNodesArr = Array.from(this._cartFooter.childNodes);
+    this._cartFooterChildNodesArr = Boolean(this._cartFooter) ? Array.from(this._cartFooter.childNodes) : [];
     this._cartFooterConfig = config;
     this._cartBtn = null;
     this._cartSummEl = null;
     this._cartCaptionEl = null;
     this._cartSummValueEl = null;
+    this._orderBtn = orderBtn;
     this._minCartSumm = 0;
     this._cartUrl = '';
     this._cartAlert = '';
@@ -60,10 +61,20 @@ export class CartFooter {
     return this._cartFooter;
   }
 
+  _setBtnEventListeners() {
+    if(this._orderBtn) {
+      this._cartBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this._orderBtn.dispatchEvent(new MouseEvent('click'));
+      });
+    }
+  }
+
   _hideBtnOrder(value, { cartSummMod, cartFooterClassName }) {
     this._cartSummEl.classList.remove(cartSummMod);
     this._cartFooter.classList.add(cartFooterClassName);
     this._cartCaptionEl.textContent = this._cartAlert;
+    this._cartSummValueEl.removeAttribute('id');
     this._cartSummValueEl.textContent = this._minCartSumm - Number(value);
 
     if(this._cartBtn) {
@@ -72,10 +83,11 @@ export class CartFooter {
     }
   }
 
-  _showBtnOrder(value, { cartSummMod, cartFooterClassName, cartBtnClassNameArr }) {
+  _showBtnOrder(value, { cartSummMod, cartFooterClassName, cartBtnId, cartBtnClassNameArr }) {
     this._cartSummEl.classList.add(cartSummMod);
     this._cartFooter.classList.remove(cartFooterClassName);
     this._cartCaptionEl.textContent = this._totalCaption;
+    this._cartSummValueEl.id = cartBtnId;
     this._cartSummValueEl.textContent = Number(value);
 
     if(!this._cartBtn) {
@@ -84,6 +96,7 @@ export class CartFooter {
       this._cartBtn.href = this._cartUrl;
       this._cartBtn.textContent = this._btnCaption;
       this._cartFooter.append(this._cartBtn);
+      this._setBtnEventListeners();
     }
   }
 
@@ -91,6 +104,7 @@ export class CartFooter {
     const {
       cartSummMod,
       cartFooterClassName,
+      cartBtnId,
       cartBtnClassNameArr
     } = this._cartFooterConfig;
 
@@ -103,6 +117,7 @@ export class CartFooter {
       this._showBtnOrder(value, {
         cartSummMod,
         cartFooterClassName,
+        cartBtnId,
         cartBtnClassNameArr,
       });
     }

@@ -39,7 +39,9 @@ export const cartFooterConfig = {
   cartSummMod: 'cart__summ_mb_none',
   cartCaptionClassName: 'cart__caption',
   cartSummValueClassName: 'cart__summ-value',
+  cartBtnId: 'ms2_order_cost',
   cartBtnClassNameArr: ['btn', 'btn_md'],
+  orderBtnSel: '.btn_order_submit',
   cartFooterClassName: 'text-center',
 };
 
