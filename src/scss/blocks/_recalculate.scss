@@ -1,40 +1,41 @@
 .recalculate {
-    display: inline-flex;
-    border-radius: 1px;
-    border: 1px solid $color__border;
+  display: inline-flex;
+  border-radius: 1px;
+  border: 1px solid $color__border;
 }
 
 .recalculate__field {
-    display: none;
+  display: none;
 }
 
 .recalculate__btn {
-    @extend %btn-default;
-    @include fw(24px);
-    @include wh(24px,24px);
-    padding: 2px;
+  @extend %btn-default;
+  @include fw(24px);
+  @include wh(24px, 24px);
+  padding: 2px;
 
-    &.recalculate__btn_remove {
-        @include border(0 1px 0 0,$color__border);
-    }
+  &.recalculate__btn_remove {
+    @include border(0 1px 0 0, $color__border);
+  }
 
-    &.recalculate__btn_add {
-        @include border(0 0 0 1px,$color__border);
-    }
+  &.recalculate__btn_add {
+    @include border(0 0 0 1px, $color__border);
+  }
+
+  &:disabled {
+    opacity: .3;
+    cursor: default;
+  }
 }
 
 .recalculate__wrapper {
-    @include fw(48px);
-    @include wh(48px,24px);
-    @include fs-lh(14px,20px);
-    padding: 2px;
-    overflow: hidden;
-    text-align: center;
-    white-space: nowrap;
-    justify-content: center;
-    font-family: $font-family_content;
-}
-
-.recalculate__value {
-
+  @include fw(48px);
+  @include wh(48px, 24px);
+  @include fs-lh(14px, 20px);
+  padding: 2px;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  justify-content: center;
+  font-family: $font-family_content;
 }

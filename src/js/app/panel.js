@@ -1,10 +1,6 @@
 import { PanelWithToggler } from '../components/PanelWithToggler';
+import { panelConfig } from '../utils/constants';
 
-const panelConfig = {
-  panelSel: '.panel',
-  panelClassActive: 'active',
-  panelBtnCloseSel: '.panel__btn_close',
-};
 const panelTogglersArr = Array.from(document.querySelectorAll('.panel-toggler'));
 panelTogglersArr.forEach((panelTogglersArrEl) => {
   const panel = new PanelWithToggler(panelTogglersArrEl, panelConfig);

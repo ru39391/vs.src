@@ -1,23 +1,6 @@
 import Inputmask from 'inputmask';
+import { fieldsData, masksConfig, profileFormData } from '../utils/constants';
 
-const fieldsData = {
-  email: Array.from(document.querySelectorAll('.input-email')),
-  phone: Array.from(document.querySelectorAll('.input-phone')),
-};
-const masksConfig = {
-  email: {
-    alias: 'email',
-    showMaskOnHover: false,
-  },
-  phone: {
-    mask: '+7 (999) 999-99-99',
-    showMaskOnHover: false,
-  }
-};
-const profileFormData = {
-  recoveryForm: document.forms.recoveryForm,
-  loginForm: document.forms.loginForm,
-};
 const { recoveryForm, loginForm } = profileFormData;
 
 function handleInputValidation(arr,config) {
