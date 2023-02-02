@@ -50,7 +50,7 @@ function togglePanels(hiddenPanel, visiblePanel, className) {
 api.getParamsData()
 .then((res) => {
   if(cartFooterEl) {
-    cartFooterEl.replaceWith(cartFooter.renderCartFooter(res));
+    cartFooterEl.replaceWith(cartFooter.renderCartFooter(res.data));
   }
 })
 .catch((err) => {
@@ -60,13 +60,13 @@ api.getParamsData()
 function renderCartData() {
   Promise.all([api.getCartData(), api.getPromoKeysData()])
   .then(([cartData, promoKeysData]) => {
-    const cartDataArr = cartData.map((item) => {
+    const cartDataArr = cartData.data.map((item) => {
       const {
         key,
         uri,
         thumb,
         pagetitle,
-        options,
+        //options,
         price,
         count,
         cost,
@@ -77,12 +77,12 @@ function renderCartData() {
         uri,
         thumb,
         pagetitle,
-        options,
+        //options,
         price,
         count,
         cost,
         remains,
-        pcode: promoKeysData.find((item) => {
+        pcode: promoKeysData.data.find((item) => {
           if(item.key == key) {
             return item;
           }

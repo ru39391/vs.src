@@ -107,7 +107,7 @@ export class Cart {
       uri,
       thumb,
       pagetitle,
-      options,
+      //options,
       price,
       count,
       cost,
